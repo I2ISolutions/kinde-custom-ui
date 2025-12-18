@@ -179,10 +179,12 @@ export const Layout = async ({
             
             .kinde-marketing-panel {
               display: none !important;
+              width: 0 !important;
+              overflow: hidden !important;
             }
             
             /* Responsive layout for desktop */
-            @media (min-width: 1024px) {
+            @media screen and (min-width: 1024px) {
               [data-kinde-root] > div,
               .kinde-layout-container {
                 flex-direction: row !important;
@@ -197,10 +199,10 @@ export const Layout = async ({
                 display: block !important;
                 width: 58.333333% !important;
                 height: 100% !important;
-                position: relative;
-                overflow: hidden;
-                background-color: rgb(15 23 42);
-                flex-shrink: 0;
+                position: relative !important;
+                overflow: hidden !important;
+                background-color: rgb(15 23 42) !important;
+                flex-shrink: 0 !important;
               }
             }
             

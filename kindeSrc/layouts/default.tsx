@@ -45,7 +45,6 @@ export const DefaultLayout = (props: { children: React.ReactNode }) => {
 
         {/* Right side - Hero/Image - Hidden on mobile, shown on desktop */}
         <div className="kinde-marketing-panel" id="marketing-panel" style={{
-          display: 'none',
           width: '100%',
           height: '100%',
           position: 'relative',
