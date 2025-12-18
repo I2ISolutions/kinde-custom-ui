@@ -8,12 +8,10 @@ interface WidgetProps {
 }
 
 export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
-  // Use Kinde's logo URL or fallback to Zopkit logo.
+  // Use Kinde's logo URL or fallback to Zopkit text logo.
   const kindeLogoUrl = getLogoUrl();
   const logoUrl =
-    kindeLogoUrl && kindeLogoUrl !== "/logo"
-      ? kindeLogoUrl
-      : "https://res.cloudinary.com/dr9vzaa7u/image/upload/v1765126845/Zopkit_Simple_Logo_glohfr.jpg";
+    kindeLogoUrl && kindeLogoUrl !== "/logo" ? kindeLogoUrl : undefined;
 
   // Always use production Kinde widget
   const widgetContent = getKindeWidget();
@@ -34,7 +32,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center", 
+        justifyContent: "center", // Changed to center vertically
         minHeight: "100%",
         position: "relative",
         overflow: "hidden",
@@ -47,18 +45,18 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
           gap: "2.5rem",
           width: "100%",
       }}>
-          <div style={{ flexShrink: 0, transform: "scale(1.1)", transformOrigin: "left top" }}>
+          <div style={{ flexShrink: 0 }}>
             <Logo src={logoUrl} />
           </div>
 
           <div style={{ flexShrink: 0 }}>
             <h1
               style={{
-                fontSize: "clamp(2rem, 3.5vh, 2.5rem)",
+                fontSize: "clamp(2rem, 4vh, 2.75rem)",
                 fontWeight: 700,
-                color: "#1e293b", // Slate 800
-                marginBottom: "0.75rem",
-                letterSpacing: "-0.02em",
+                color: "#0f172a",
+                marginBottom: "1rem",
+                letterSpacing: "-0.03em",
                 lineHeight: "1.2",
                 fontFamily: '"Inter", sans-serif',
               }}
@@ -66,23 +64,23 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
               {heading}
             </h1>
             <p style={{
-                fontSize: "1rem",
+                fontSize: "1.125rem",
                 color: "#64748b",
                 lineHeight: "1.6",
-                maxWidth: "100%", 
+                maxWidth: "100%", // Allowed full width
             }}>
                 {description}
             </p>
           </div>
 
-          {/* Module Grid - Refined text styles */}
+          {/* Module Grid - More subtle and aligned */}
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
+              gridTemplateColumns: "repeat(2, 1fr)", // Strict 2 column
               gap: "1.5rem",
-              paddingTop: "1.25rem",
-              borderTop: "1px solid #e2e8f0",
+              paddingTop: "1rem",
+              borderTop: "1px solid #f1f5f9",
             }}
           >
             {modules.map((mod, i) => (
@@ -98,7 +96,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
                   style={{
                     fontSize: "0.625rem",
                     fontWeight: 700,
-                    color: "#4f46e5", // Indigo 600
+                    color: "#6366f1",
                     letterSpacing: "0.05em",
                     textTransform: "uppercase",
                     fontFamily: '"Inter", sans-serif',
@@ -108,9 +106,9 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
                 </span>
                 <span
                   style={{
-                    fontSize: "0.75rem",
+                    fontSize: "0.8rem",
                     fontWeight: 500,
-                    color: "#475569", // Slate 600
+                    color: "#475569",
                     lineHeight: "1.4",
                     fontFamily: '"Inter", sans-serif',
                   }}
