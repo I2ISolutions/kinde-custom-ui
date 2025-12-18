@@ -3,79 +3,130 @@ import { getKindeWidget, getLogoUrl } from "@kinde/infrastructure";
 import { Logo } from "./logo";
 import { MockKindeWidget } from "./mock-widget";
 
-export const Widget = (props: { heading: string; description: string }) => {
-  // Use Kinde's logo URL or fallback to Zopkit logo
-  const kindeLogoUrl = getLogoUrl();
-  const logoUrl = kindeLogoUrl && kindeLogoUrl !== '/logo' 
-    ? kindeLogoUrl 
-    : "https://res.cloudinary.com/dr9vzaa7u/image/upload/v1765126845/Zopkit_Simple_Logo_glohfr.jpg";
+interface WidgetProps {
+  heading: string;
+  description: string;
+}
 
-  // Check if we're in local development (getKindeWidget returns a string ID or invalid content)
+export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
+  // Use Kinde's logo URL or fallback to Zopkit logo.
+  const kindeLogoUrl = getLogoUrl();
+  const logoUrl =
+    kindeLogoUrl && kindeLogoUrl !== "/logo"
+      ? kindeLogoUrl
+      : "https://res.cloudinary.com/dr9vzaa7u/image/upload/v1765126845/Zopkit_Simple_Logo_glohfr.jpg";
+
+  // Kinde widget content in real runtime; mock in local/dev.
   const widgetContent = getKindeWidget();
-  const isLocalDev = typeof widgetContent === 'string' || 
-                     widgetContent === null ||
-                     widgetContent === undefined ||
-                     (typeof widgetContent === 'object' && !React.isValidElement(widgetContent));
+  const isLocalDev =
+    typeof widgetContent === "string" ||
+    widgetContent === null ||
+    widgetContent === undefined ||
+    (typeof widgetContent === "object" && !React.isValidElement(widgetContent));
+
+  const modules = [
+    { name: "REVENUE_CRM", detail: "Modern CRM for B2B Sales Teams" },
+    { name: "HCM_CORE", detail: "Complete HRMS & Workforce Insights" },
+    { name: "FINANCIALS", detail: "Multi-Entity Accounting & Treasury" },
+    { name: "OPS_CONTROL", detail: "Inventory, Procurement & Fulfillment" },
+    { name: "PROJECT_HUB", detail: "Enterprise Project & Resource Planning" },
+    { name: "AFFILIATE_CONNECT", detail: "Affiliate & Influencer Marketing Suite" },
+  ];
 
   return (
-    <main style={{ 
-      width: '100%', 
-      maxWidth: '440px', // Slightly wider for enterprise feel
-      margin: '0 auto', 
-      padding: '0',
-      opacity: 0,
-      animation: 'fadeIn 0.8s ease-out forwards'
-    }}>
-      <div style={{ 
-        marginBottom: '3.5rem', 
-        display: 'flex', 
-        justifyContent: 'flex-start', 
-        width: '100%',
-        transform: 'translateY(0)',
-        transition: 'transform 0.3s ease'
-      }}>
+    <div
+      className="animate-fade-in"
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        height: "100%",
+        position: "relative",
+      }}
+    >
+      <div style={{ position: "absolute", top: 0, left: 0 }}>
         <Logo src={logoUrl} />
       </div>
 
-      <div style={{ marginBottom: '3rem', textAlign: 'left' }}>
-        <h1 style={{ 
-          fontSize: '36px', 
-          fontWeight: 700, 
-          color: 'rgb(15 23 42)', 
-          marginBottom: '1rem',
-          letterSpacing: '-0.02em',
-          lineHeight: '1.2'
-        }}>
-          {props.heading}
+      <div style={{ marginTop: "4rem", marginBottom: "4rem" }}>
+        <h1
+          style={{
+            fontSize: "clamp(2.5rem, 6vh, 3.75rem)",
+            fontWeight: 900,
+            color: "#0f172a",
+            marginBottom: "1.5rem",
+            letterSpacing: "0.04em",
+            lineHeight: "0.95",
+          }}
+        >
+          {heading}
         </h1>
-        <p style={{ 
-          color: 'rgb(100 116 139)', 
-          fontWeight: 400, 
-          fontSize: '1.125rem',
-          lineHeight: '1.6',
-          maxWidth: '360px'
-        }}>
-          {props.description}
+        <p
+          style={{
+            color: "#64748b",
+            fontSize: "0.9375rem",
+            lineHeight: "1.6",
+            fontWeight: 500,
+            marginBottom: "4.5rem",
+            letterSpacing: "0.02em",
+            maxWidth: "440px",
+          }}
+        >
+          {description ||
+            "Sign in to access your unified business operations suite across CRM, HRMS, Finance, Operations, Projects, and Affiliate Connect."}
         </p>
-      </div>
 
-      <div style={{ width: '100%' }}>
-        {/* Kinde Widget Container */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          {isLocalDev ? <MockKindeWidget /> : widgetContent}
+        {/* Enterprise Module Portfolio */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "3rem 2.5rem",
+            marginBottom: "2rem",
+          }}
+        >
+          {modules.map((mod, i) => (
+            <div
+              key={i}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.65rem",
+                borderLeft: "1px solid #f1f5f9",
+                paddingLeft: "1.5rem",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "0.55rem",
+                  fontWeight: 900,
+                  color: "#4F46E5",
+                  letterSpacing: "0.55em",
+                  textTransform: "uppercase",
+                }}
+              >
+                {mod.name}
+              </span>
+              <span
+                style={{
+                  fontSize: "0.8125rem",
+                  fontWeight: 600,
+                  color: "#334155",
+                  lineHeight: "1.3",
+                  letterSpacing: "0.01em",
+                }}
+              >
+                {mod.detail}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
 
-      <div style={{ marginTop: '4rem', textAlign: 'left', fontSize: '0.875rem', color: 'rgb(148 163 184)' }}>
-        <div style={{ display: 'flex', justifyContent: 'flex-start', gap: '2rem', marginBottom: '1.5rem' }}>
-          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none', transition: 'color 0.2s' }}>Privacy</a>
-          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none', transition: 'color 0.2s' }}>Terms</a>
-          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none', transition: 'color 0.2s' }}>Help</a>
-        </div>
-        <p style={{ margin: 0, opacity: 0.8, fontSize: '0.875rem' }}>
-          &copy; {new Date().getFullYear()} Zopkit Inc. All rights reserved.
-        </p>
+      <div style={{ width: "100%", maxWidth: "400px" }}>
+        {isLocalDev ? <MockKindeWidget /> : widgetContent}
       </div>
-    </main>
+    </div>
   );
 };

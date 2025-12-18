@@ -329,6 +329,16 @@ export const Layout = async ({
               animation: float 6s ease-in-out infinite;
             }
 
+            /* Enterprise typography helpers */
+            :root {
+              --zopkit-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            }
+
+            /* Ensure marketing panel visuals are crisp */
+            #marketing-panel {
+              background: radial-gradient(circle at top right, rgb(15 23 42), rgb(10 15 30)) !important;
+            }
+
             /* Button hover effects */
             [data-kinde-button-primary] {
               position: relative;

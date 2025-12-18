@@ -1,33 +1,45 @@
 import React from "react";
 
 interface LogoProps {
-  src: string;
+  src?: string;
 }
 
-export const Logo = ({ src }: LogoProps) => {
+export const Logo: React.FC<LogoProps> = ({ src }) => {
+  // If a logo URL is provided, render the image. Otherwise render the text mark.
+  if (src) {
+    return (
+      <div style={{ display: "flex", alignItems: "center", gap: "12px", userSelect: "none" }}>
+        <img
+          src={src}
+          alt="Zopkit"
+          style={{
+            height: "56px",
+            width: "auto",
+            maxWidth: "240px",
+            objectFit: "contain",
+            display: "block",
+          }}
+          crossOrigin="anonymous"
+          loading="eager"
+        />
+      </div>
+    );
+  }
+
   return (
-    <div style={{ 
-      display: 'flex', 
-      alignItems: 'center', 
-      justifyContent: 'flex-start', 
-      marginBottom: '3rem',
-      width: '100%'
-    }}>
-      <img
-        src={src}
-        alt="Zopkit"
+    <div style={{ display: "flex", alignItems: "baseline", gap: "6px", userSelect: "none" }}>
+      <span
         style={{
-          height: '5rem',
-          width: 'auto',
-          maxWidth: '200px',
-          objectFit: 'contain',
-          display: 'block',
-          margin: 0,
-          padding: 0
+          fontSize: "1.1rem",
+          fontWeight: 900,
+          letterSpacing: "0.18em",
+          color: "#0f172a",
+          lineHeight: 1,
         }}
-        crossOrigin="anonymous"
-        loading="eager"
-      />
+      >
+        ZOPKIT
+      </span>
+      <div style={{ width: "6px", height: "6px", backgroundColor: "#4F46E5", borderRadius: "50%" }} />
     </div>
   );
 };
