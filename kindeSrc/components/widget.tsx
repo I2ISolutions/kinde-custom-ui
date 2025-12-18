@@ -15,12 +15,12 @@ export const Widget = (props: { heading: string; description: string }) => {
                      (typeof widgetContent === 'object' && !React.isValidElement(widgetContent));
 
   return (
-    <main style={{ width: '100%', maxWidth: '400px', margin: '0 auto', padding: '0 1.5rem' }}>
-      <div style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'center' }}>
+    <main style={{ width: '100%', maxWidth: '400px', margin: '0 auto', padding: '0' }}>
+      <div style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'flex-start', width: '100%' }}>
         <Logo src={logoUrl} />
       </div>
 
-      <div style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
+      <div style={{ marginBottom: '2.5rem', textAlign: 'left' }}>
         <h1 style={{ 
           fontSize: '32px', 
           fontWeight: 700, 

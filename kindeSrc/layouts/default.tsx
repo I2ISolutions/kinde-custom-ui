@@ -45,7 +45,12 @@ export const DefaultLayout = (props: { children: React.ReactNode }) => {
 
         {/* Right side - Hero/Image */}
         <div style={{
-          display: 'none' // Hidden on mobile, shown via media query in inline styles
+          display: 'none', // Hidden on mobile
+          width: '58.333333%',
+          height: '100%',
+          position: 'relative',
+          overflow: 'hidden',
+          backgroundColor: 'rgb(15 23 42)'
         }}>
           <MarketingPanel />
         </div>

@@ -151,17 +151,39 @@ export const Layout = async ({
             
             /* Responsive layout for desktop */
             @media (min-width: 1024px) {
+              [data-kinde-root] > div {
+                display: flex !important;
+                width: 100% !important;
+                height: 100% !important;
+              }
               [data-kinde-root] > div > div:first-child {
-                width: 41.666667%;
+                width: 41.666667% !important;
+                flex-shrink: 0;
               }
               [data-kinde-root] > div > div:last-child {
-                display: block;
-                width: 58.333333%;
-                height: 100%;
+                display: block !important;
+                width: 58.333333% !important;
+                height: 100% !important;
                 position: relative;
                 overflow: hidden;
                 background-color: rgb(15 23 42);
+                flex-shrink: 0;
               }
+            }
+            
+            /* Ensure body and html take full height */
+            html, body {
+              height: 100%;
+              margin: 0;
+              padding: 0;
+            }
+            
+            /* Logo styling */
+            img[alt="Zopkit"] {
+              height: 5rem !important;
+              width: auto !important;
+              max-width: 200px !important;
+              object-fit: contain !important;
             }
           `
         }} />
