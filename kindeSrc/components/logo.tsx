@@ -21,9 +21,12 @@ export const Logo = ({ src }: LogoProps) => {
           width: 'auto',
           maxWidth: '200px',
           objectFit: 'contain',
-          display: 'block'
+          display: 'block',
+          margin: 0,
+          padding: 0
         }}
         crossOrigin="anonymous"
+        loading="eager"
       />
     </div>
   );

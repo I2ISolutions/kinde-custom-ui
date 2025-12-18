@@ -168,17 +168,31 @@ export const Layout = async ({
               flex-direction: column;
             }
             
+            .kinde-layout-container {
+              display: flex !important;
+              flex-direction: column !important;
+            }
+            
+            .kinde-login-panel {
+              width: 100% !important;
+            }
+            
+            .kinde-marketing-panel {
+              display: none !important;
+            }
+            
             /* Responsive layout for desktop */
             @media (min-width: 1024px) {
-              [data-kinde-root] > div {
+              [data-kinde-root] > div,
+              .kinde-layout-container {
                 flex-direction: row !important;
               }
-              [data-kinde-root] > div > div:first-child {
+              .kinde-login-panel {
                 width: 41.666667% !important;
                 flex-shrink: 0;
                 max-width: 500px;
               }
-              [data-kinde-root] > div > div:last-child,
+              .kinde-marketing-panel,
               #marketing-panel {
                 display: block !important;
                 width: 58.333333% !important;
@@ -197,6 +211,36 @@ export const Layout = async ({
               max-width: 200px !important;
               object-fit: contain !important;
               display: block !important;
+              margin: 0 !important;
+              padding: 0 !important;
+            }
+            
+            /* Main content styling */
+            main {
+              width: 100% !important;
+              max-width: 400px !important;
+              margin: 0 auto !important;
+              padding: 0 !important;
+            }
+            
+            /* Heading styling */
+            h1 {
+              font-size: 32px !important;
+              font-weight: 700 !important;
+              color: rgb(15 23 42) !important;
+              margin-bottom: 0.75rem !important;
+              letter-spacing: -0.025em !important;
+              line-height: 1.25 !important;
+              text-align: left !important;
+            }
+            
+            /* Paragraph styling */
+            p {
+              color: rgb(100 116 139) !important;
+              font-weight: 500 !important;
+              font-size: 1.125rem !important;
+              line-height: 1.625 !important;
+              text-align: left !important;
             }
             
             /* Link hover effects */
