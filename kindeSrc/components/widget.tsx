@@ -43,13 +43,14 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         justifyContent: "center",
         height: "100%",
         position: "relative",
+        paddingTop: "2rem", // Added padding for safety
       }}
     >
-      <div style={{ position: "absolute", top: 0, left: 0 }}>
+      <div style={{ marginBottom: "2rem" }}> {/* Changed from absolute positioning to normal flow */}
         <Logo src={logoUrl} />
       </div>
 
-      <div style={{ marginTop: "4rem", marginBottom: "4rem" }}>
+      <div style={{ marginBottom: "4rem" }}>
         <h1
           style={{
             fontSize: "clamp(2.5rem, 6vh, 3.75rem)",

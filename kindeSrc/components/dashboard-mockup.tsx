@@ -13,16 +13,17 @@ const DashboardMockup: React.FC = () => {
   };
 
   const labelStyle: React.CSSProperties = {
-    fontSize: "0.5rem",
+    fontSize: "0.45rem", // Slightly smaller to prevent break
     fontWeight: 900,
     color: "#475569",
     textTransform: "uppercase",
-    letterSpacing: "0.65em",
+    letterSpacing: "0.35em", // Reduced spacing to fit
     marginBottom: "1rem",
+    whiteSpace: "nowrap", // Prevent breaking
   };
 
   const valueStyle: React.CSSProperties = {
-    fontSize: "2rem",
+    fontSize: "1.75rem", // Slightly smaller
     fontWeight: 800,
     color: "#ffffff",
     letterSpacing: "0.05em",

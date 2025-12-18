@@ -10,54 +10,54 @@ const MarketingPanel: React.FC = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start", // Changed from center to allow better top spacing
         height: "100%",
-        padding: "0",
+        padding: "4rem 2rem", // Added padding
+        overflow: "hidden", // Prevent scrollbars from tilt effect
       }}
     >
-      <div style={{ width: "100%", textAlign: "left", marginBottom: "5rem" }}>
+      <div style={{ width: "100%", textAlign: "left", marginBottom: "3rem" }}>
         <h2
           style={{
-            fontSize: "clamp(3rem, 10vh, 6.25rem)",
+            fontSize: "clamp(2.5rem, 5vw, 5rem)", // Reduced max size to prevent overflow
             fontWeight: 900,
             color: "white",
-            lineHeight: "0.85",
-            marginBottom: "2.5rem",
-            letterSpacing: "0.05em",
+            lineHeight: "0.9",
+            marginBottom: "2rem",
+            letterSpacing: "0.02em",
           }}
         >
           UNIFIED CORE.
           <br />
           ELASTIC SCALE.
         </h2>
-        <div style={{ display: "flex", gap: "8rem", alignItems: "flex-start" }}>
+        <div style={{ display: "flex", gap: "4rem", alignItems: "flex-start", flexWrap: "wrap" }}>
           <p
             style={{
-              fontSize: "1.125rem",
-              color: "rgba(255, 255, 255, 0.45)",
+              fontSize: "1rem",
+              color: "rgba(255, 255, 255, 0.6)",
               lineHeight: "1.6",
-              maxWidth: "520px",
+              maxWidth: "480px",
               fontWeight: 500,
-              letterSpacing: "0.02em",
+              letterSpacing: "0.01em",
             }}
           >
             The definitive multi-tenant architecture for the modern enterprise.
-            Consolidate CRM, HRMS, and Global Finance into a single source of truth with
-            Zopkit&apos;s unified command intelligence.
+            Consolidate CRM, HRMS, and Global Finance into a single source of truth.
           </p>
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "0.85rem",
+              gap: "0.5rem",
               borderLeft: "1px solid rgba(255,255,255,0.12)",
-              paddingLeft: "2rem",
+              paddingLeft: "1.5rem",
             }}
           >
             <span style={{ fontSize: "0.5rem", fontWeight: 900, color: "#4F46E5", letterSpacing: "0.6em" }}>
               ARCHITECTURE
             </span>
-            <span style={{ fontSize: "1rem", fontWeight: 700, color: "#ffffff", letterSpacing: "0.05em" }}>
+            <span style={{ fontSize: "0.875rem", fontWeight: 700, color: "#ffffff", letterSpacing: "0.05em" }}>
               Multi-Tenant Mesh v5.0
             </span>
           </div>
@@ -67,11 +67,13 @@ const MarketingPanel: React.FC = () => {
       <div
         style={{
           width: "100%",
-          transform: "perspective(1800px) rotateX(5deg)",
-          filter: "drop-shadow(0 60px 100px rgba(0,0,0,0.8))",
-          maxHeight: "52vh",
+          transform: "perspective(2000px) rotateX(10deg) scale(0.9)", // Adjusted scale to fit better
+          transformOrigin: "top center",
+          filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.6))",
           display: "flex",
-          alignItems: "center",
+          alignItems: "flex-start",
+          justifyContent: "center",
+          marginTop: "1rem"
         }}
       >
         <DashboardMockup />
