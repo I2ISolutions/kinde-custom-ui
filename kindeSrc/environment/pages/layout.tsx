@@ -314,14 +314,41 @@ export const Layout = async ({
               border-radius: 3px;
             }
             
-            /* Ensure Kinde widget buttons are visible */
+            /* Ensure Kinde widget and all elements are visible */
+            [data-kinde-widget],
+            [data-kinde-widget] * {
+              opacity: 1 !important;
+              visibility: visible !important;
+            }
+            
             [data-kinde-layout-auth-buttons-item] button,
             [data-kinde-button-secondary],
-            [data-kinde-button-primary] {
+            [data-kinde-button-primary],
+            button[data-kinde-button],
+            a[data-kinde-button] {
               opacity: 1 !important;
               visibility: visible !important;
               display: flex !important;
               z-index: 10 !important;
+              position: relative !important;
+            }
+            
+            /* Ensure input fields are visible */
+            [data-kinde-input],
+            input[type="email"],
+            input[type="password"],
+            input[type="text"] {
+              opacity: 1 !important;
+              visibility: visible !important;
+              display: block !important;
+            }
+            
+            /* Ensure labels are visible */
+            [data-kinde-label],
+            label {
+              opacity: 1 !important;
+              visibility: visible !important;
+              display: block !important;
             }
             
             .kinde-marketing-panel {
