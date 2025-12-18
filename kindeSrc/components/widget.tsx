@@ -122,7 +122,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         </div>
       </div>
 
-      <div style={{ width: "100%", flexShrink: 0 }}>
+      <div style={{ width: "100%", flexShrink: 0, marginTop: "1rem", zIndex: 10, position: "relative" }}>
         {widgetContent}
       </div>
     </div>

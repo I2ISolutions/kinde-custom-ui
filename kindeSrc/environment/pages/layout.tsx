@@ -257,7 +257,7 @@ export const Layout = async ({
               -moz-osx-font-smoothing: grayscale;
             }
             
-            /* Container styling - Full Screen Enterprise */
+            /* Container styling - Full Viewport Enterprise */
             .kinde-layout-wrapper {
               position: fixed;
               top: 0;
@@ -267,9 +267,9 @@ export const Layout = async ({
               overflow: hidden;
               background: linear-gradient(to bottom right, rgb(248 250 252), rgb(241 245 249));
               display: flex;
-              align-items: center;
-              justify-content: center;
-              padding: 1rem;
+              align-items: stretch;
+              justify-content: stretch;
+              padding: 0 !important;
               box-sizing: border-box;
             }
             
@@ -277,27 +277,27 @@ export const Layout = async ({
               display: flex !important;
               flex-direction: column !important;
               width: 100% !important;
-              height: 100% !important;
-              max-width: 1600px !important;
-              max-height: 95vh !important;
-              margin: 0 auto !important;
+              height: 100vh !important;
+              max-width: none !important;
+              max-height: none !important;
+              margin: 0 !important;
               background-color: white !important;
-              border-radius: 1.5rem !important;
-              box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25) !important;
+              border-radius: 0 !important;
+              box-shadow: none !important;
               overflow: hidden !important;
-              border: 1px solid rgba(226, 232, 240, 0.5) !important;
+              border: none !important;
             }
             
             .kinde-login-panel {
               width: 100% !important;
-              height: 100% !important;
-              padding: 2.5rem !important;
+              height: 100vh !important;
+              padding: 3rem 2.5rem !important;
               overflow-y: auto !important;
               overflow-x: hidden !important;
               background-color: white !important;
               display: flex !important;
               flex-direction: column !important;
-              justify-content: flex-start !important;
+              justify-content: center !important;
               box-sizing: border-box !important;
             }
             
@@ -314,6 +314,16 @@ export const Layout = async ({
               border-radius: 3px;
             }
             
+            /* Ensure Kinde widget buttons are visible */
+            [data-kinde-layout-auth-buttons-item] button,
+            [data-kinde-button-secondary],
+            [data-kinde-button-primary] {
+              opacity: 1 !important;
+              visibility: visible !important;
+              display: flex !important;
+              z-index: 10 !important;
+            }
+            
             .kinde-marketing-panel {
               display: none !important;
             }
@@ -326,8 +336,8 @@ export const Layout = async ({
               
               .kinde-login-panel {
                 width: 42% !important;
-                height: 100% !important;
-                padding: 3.5rem 4rem !important;
+                height: 100vh !important;
+                padding: 4rem 5rem !important;
                 flex-shrink: 0 !important;
               }
               
@@ -335,7 +345,7 @@ export const Layout = async ({
               #marketing-panel {
                 display: flex !important;
                 width: 58% !important;
-                height: 100% !important;
+                height: 100vh !important;
                 background-color: rgb(15 23 42) !important;
                 flex-shrink: 0 !important;
                 overflow: hidden !important;
