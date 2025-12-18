@@ -4,7 +4,7 @@ interface LogoProps {
   src: string;
 }
 
-export const Logo: React.FC<LogoProps> = ({ src }) => {
+export const Logo = ({ src }: LogoProps) => {
   return (
     <div className="flex items-center justify-center mb-3">
       <div className="relative group">
