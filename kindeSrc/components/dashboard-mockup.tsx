@@ -4,408 +4,129 @@ const DashboardMockup: React.FC = () => {
   return (
     <div style={{
       backgroundColor: 'white',
-      borderRadius: '1rem',
-      boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)',
-      padding: '1.25rem',
+      borderRadius: '1.25rem', // Softer corners
+      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)', // Cleaner shadow
+      padding: '1.5rem',
       width: '100%',
       overflow: 'hidden',
-      border: '1px solid rgba(255,255,255,0.2)',
+      border: '1px solid rgba(241, 245, 249, 1)', // Subtle border
       userSelect: 'none',
       pointerEvents: 'none',
-      transform: 'scale(0.85)',
+      transform: 'scale(0.9)', // Slightly smaller for fit
       transformOrigin: 'center'
     }}>
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(12, minmax(0, 1fr))',
-        gap: '1rem'
+        gap: '1.25rem' // Increased gap
       }}>
         
         {/* Top Widgets */}
-        <div style={{
-          gridColumn: 'span 4',
-          backgroundColor: 'rgb(248 250 252)',
-          padding: '1rem',
-          borderRadius: '0.75rem',
-          border: '1px solid rgb(241 245 249)'
-        }}>
-          <div style={{
+        {[
+          { label: 'Total Sales', value: '$189,374', trend: '7%', positive: true, icon: 'chart' },
+          { label: 'Chat Performance', value: '00:01:30', graph: true },
+          { label: 'Total Profit', value: '$25,684', trend: '5%', positive: true, icon: 'dollar' }
+        ].map((widget, i) => (
+          <div key={i} style={{
+            gridColumn: 'span 4',
+            backgroundColor: 'white',
+            padding: '1.25rem',
+            borderRadius: '1rem',
+            border: '1px solid rgb(241 245 249)',
+            boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
             display: 'flex',
+            flexDirection: 'column',
             justifyContent: 'space-between',
-            alignItems: 'flex-start',
-            marginBottom: '1rem'
+            height: '100%'
           }}>
-            <div>
-              <p style={{
-                fontSize: '10px',
-                fontWeight: 700,
-                color: 'rgb(148 163 184)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                margin: 0
-              }}>Total Sales</p>
-              <h3 style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: 'rgb(30 41 59)',
-                margin: 0,
-                marginTop: '0.25rem'
-              }}>$189,374</h3>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
+              <div>
+                <p style={{ fontSize: '11px', fontWeight: 600, color: 'rgb(100 116 139)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>{widget.label}</p>
+                <h3 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'rgb(15 23 42)', lineHeight: '1' }}>{widget.value}</h3>
+              </div>
+              <div style={{ padding: '0.5rem', backgroundColor: 'rgb(248 250 252)', borderRadius: '0.5rem' }}>
+                <div style={{ width: '4px', height: '4px', backgroundColor: 'rgb(148 163 184)', borderRadius: '50%', boxShadow: '6px 0 0 rgb(148 163 184), -6px 0 0 rgb(148 163 184)' }}></div>
+              </div>
             </div>
-            <div style={{
-              padding: '0.375rem',
-              backgroundColor: 'white',
-              borderRadius: '0.5rem',
-              boxShadow: '0 1px 2px 0 rgba(0,0,0,0.05)',
-              border: '1px solid rgb(241 245 249)'
-            }}>
-              <svg style={{ width: '14px', height: '14px', color: 'rgb(148 163 184)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-              </svg>
-            </div>
+            
+            {widget.graph ? (
+              <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4px', height: '32px', marginTop: '0.5rem' }}>
+                 {[40, 70, 45, 90, 50, 80, 60].map((h, idx) => (
+                   <div key={idx} style={{ flex: 1, height: `${h}%`, backgroundColor: 'rgb(59 130 246)', borderRadius: '4px', opacity: idx % 2 ? 0.7 : 1 }}></div>
+                 ))}
+              </div>
+            ) : (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.5rem' }}>
+                <span style={{ display: 'flex', alignItems: 'center', fontSize: '11px', fontWeight: 600, color: 'rgb(22 163 74)', backgroundColor: 'rgb(220 252 231)', padding: '2px 8px', borderRadius: '9999px' }}>
+                  +{widget.trend}
+                </span>
+                <span style={{ fontSize: '11px', color: 'rgb(148 163 184)', fontWeight: 500 }}>vs last month</span>
+              </div>
+            )}
           </div>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.375rem'
-          }}>
-            <span style={{
-              display: 'flex',
-              alignItems: 'center',
-              fontSize: '10px',
-              fontWeight: 700,
-              color: 'rgb(16 185 129)',
-              backgroundColor: 'rgb(236 253 245)',
-              padding: '0.125rem 0.5rem',
-              borderRadius: '9999px'
-            }}>
-              <svg style={{ width: '10px', height: '10px', marginRight: '0.125rem' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-              7%
-            </span>
-            <span style={{
-              fontSize: '10px',
-              fontWeight: 500,
-              color: 'rgb(148 163 184)'
-            }}>From last month</span>
-          </div>
-        </div>
-
-        <div style={{
-          gridColumn: 'span 4',
-          backgroundColor: 'rgb(248 250 252)',
-          padding: '1rem',
-          borderRadius: '0.75rem',
-          border: '1px solid rgb(241 245 249)'
-        }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-            marginBottom: '1rem'
-          }}>
-            <div>
-              <p style={{
-                fontSize: '10px',
-                fontWeight: 700,
-                color: 'rgb(148 163 184)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                margin: 0
-              }}>Chat Performance</p>
-              <h3 style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: 'rgb(30 41 59)',
-                margin: 0,
-                marginTop: '0.25rem'
-              }}>00:01:30</h3>
-            </div>
-            <div style={{
-              padding: '0.375rem',
-              backgroundColor: 'white',
-              borderRadius: '0.5rem',
-              boxShadow: '0 1px 2px 0 rgba(0,0,0,0.05)',
-              border: '1px solid rgb(241 245 249)'
-            }}>
-              <svg style={{ width: '14px', height: '14px', color: 'rgb(148 163 184)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-              </svg>
-            </div>
-          </div>
-          <div style={{
-            height: '3rem',
-            width: '100%',
-            background: 'linear-gradient(to top, rgb(219 234 254), rgb(239 246 255))',
-            borderRadius: '0.5rem',
-            display: 'flex',
-            alignItems: 'flex-end',
-            justifyContent: 'space-between',
-            padding: '0 0.5rem',
-            paddingBottom: '0.25rem'
-          }}>
-            <div style={{ width: '8px', height: '24px', backgroundColor: 'rgb(96 165 250)', borderRadius: '0.25rem 0.25rem 0 0' }}></div>
-            <div style={{ width: '8px', height: '32px', backgroundColor: 'rgb(59 130 246)', borderRadius: '0.25rem 0.25rem 0 0' }}></div>
-            <div style={{ width: '8px', height: '20px', backgroundColor: 'rgb(96 165 250)', borderRadius: '0.25rem 0.25rem 0 0' }}></div>
-            <div style={{ width: '8px', height: '28px', backgroundColor: 'rgb(59 130 246)', borderRadius: '0.25rem 0.25rem 0 0' }}></div>
-            <div style={{ width: '8px', height: '16px', backgroundColor: 'rgb(96 165 250)', borderRadius: '0.25rem 0.25rem 0 0' }}></div>
-            <div style={{ width: '8px', height: '24px', backgroundColor: 'rgb(59 130 246)', borderRadius: '0.25rem 0.25rem 0 0' }}></div>
-            <div style={{ width: '8px', height: '20px', backgroundColor: 'rgb(96 165 250)', borderRadius: '0.25rem 0.25rem 0 0' }}></div>
-          </div>
-        </div>
-
-        <div style={{
-          gridColumn: 'span 4',
-          backgroundColor: 'rgb(248 250 252)',
-          padding: '1rem',
-          borderRadius: '0.75rem',
-          border: '1px solid rgb(241 245 249)'
-        }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-            marginBottom: '1rem'
-          }}>
-            <div>
-              <p style={{
-                fontSize: '10px',
-                fontWeight: 700,
-                color: 'rgb(148 163 184)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                margin: 0
-              }}>Total Profit</p>
-              <h3 style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: 'rgb(30 41 59)',
-                margin: 0,
-                marginTop: '0.25rem'
-              }}>$25,684</h3>
-            </div>
-            <div style={{
-              padding: '0.375rem',
-              backgroundColor: 'white',
-              borderRadius: '0.5rem',
-              boxShadow: '0 1px 2px 0 rgba(0,0,0,0.05)',
-              border: '1px solid rgb(241 245 249)'
-            }}>
-              <svg style={{ width: '14px', height: '14px', color: 'rgb(148 163 184)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-              </svg>
-            </div>
-          </div>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.375rem'
-          }}>
-            <span style={{
-              display: 'flex',
-              alignItems: 'center',
-              fontSize: '10px',
-              fontWeight: 700,
-              color: 'rgb(16 185 129)',
-              backgroundColor: 'rgb(236 253 245)',
-              padding: '0.125rem 0.5rem',
-              borderRadius: '9999px'
-            }}>
-              <svg style={{ width: '10px', height: '10px', marginRight: '0.125rem' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-              5%
-            </span>
-            <span style={{
-              fontSize: '10px',
-              fontWeight: 500,
-              color: 'rgb(148 163 184)'
-            }}>From last month</span>
-          </div>
-        </div>
+        ))}
 
         {/* Middle Section: Main Charts */}
         <div style={{
           gridColumn: 'span 8',
           backgroundColor: 'white',
-          padding: '1rem',
-          borderRadius: '0.75rem',
+          padding: '1.5rem',
+          borderRadius: '1rem',
           border: '1px solid rgb(241 245 249)',
-          minHeight: '160px'
+          boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+          minHeight: '200px'
         }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: '1.5rem'
-          }}>
-            <h4 style={{
-              fontSize: '0.875rem',
-              fontWeight: 700,
-              color: 'rgb(30 41 59)',
-              margin: 0
-            }}>Sales Overview</h4>
-            <div style={{
-              fontSize: '10px',
-              padding: '0.25rem 0.5rem',
-              backgroundColor: 'rgb(248 250 252)',
-              borderRadius: '0.25rem',
-              border: '1px solid rgb(226 232 240)',
-              fontWeight: 600,
-              color: 'rgb(100 116 139)'
-            }}>Weekly</div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+            <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'rgb(15 23 42)', margin: 0 }}>Sales Overview</h4>
+            <div style={{ fontSize: '11px', padding: '0.25rem 0.75rem', backgroundColor: 'rgb(248 250 252)', borderRadius: '0.375rem', border: '1px solid rgb(226 232 240)', fontWeight: 600, color: 'rgb(71 85 105)' }}>Weekly</div>
           </div>
-          <div style={{
-            height: '8rem',
-            width: '100%',
-            display: 'flex',
-            alignItems: 'flex-end',
-            justifyContent: 'space-between',
-            gap: '0.25rem'
-          }}>
-            <div style={{ flex: 1, backgroundColor: 'rgb(59 130 246)', borderRadius: '0.25rem 0.25rem 0 0', height: '60%' }}></div>
-            <div style={{ flex: 1, backgroundColor: 'rgb(59 130 246)', borderRadius: '0.25rem 0.25rem 0 0', height: '45%' }}></div>
-            <div style={{ flex: 1, backgroundColor: 'rgb(59 130 246)', borderRadius: '0.25rem 0.25rem 0 0', height: '30%' }}></div>
-            <div style={{ flex: 1, backgroundColor: 'rgb(59 130 246)', borderRadius: '0.25rem 0.25rem 0 0', height: '55%' }}></div>
-            <div style={{ flex: 1, backgroundColor: 'rgb(59 130 246)', borderRadius: '0.25rem 0.25rem 0 0', height: '25%' }}></div>
-            <div style={{ flex: 1, backgroundColor: 'rgb(59 130 246)', borderRadius: '0.25rem 0.25rem 0 0', height: '40%' }}></div>
-            <div style={{ flex: 1, backgroundColor: 'rgb(59 130 246)', borderRadius: '0.25rem 0.25rem 0 0', height: '35%' }}></div>
+          <div style={{ height: '10rem', width: '100%', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '0.75rem' }}>
+            {[60, 45, 30, 75, 50, 85, 65].map((h, i) => (
+              <div key={i} style={{ flex: 1, backgroundColor: 'rgb(59 130 246)', borderRadius: '0.5rem', height: `${h}%`, transition: 'height 0.5s ease', opacity: 0.9 }}></div>
+            ))}
           </div>
         </div>
 
         <div style={{
           gridColumn: 'span 4',
           backgroundColor: 'white',
-          padding: '1rem',
-          borderRadius: '0.75rem',
+          padding: '1.5rem',
+          borderRadius: '1rem',
           border: '1px solid rgb(241 245 249)',
-          position: 'relative'
+          boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center'
         }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: '0.5rem'
-          }}>
-            <h4 style={{
-              fontSize: '0.875rem',
-              fontWeight: 700,
-              color: 'rgb(30 41 59)',
-              margin: 0
-            }}>Sales Categories</h4>
-          </div>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}>
+          <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'rgb(15 23 42)', marginBottom: '1.5rem', alignSelf: 'flex-start' }}>Sales Categories</h4>
+          <div style={{ position: 'relative', width: '140px', height: '140px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <div style={{
-              height: '8rem',
-              width: '8rem',
-              borderRadius: '50%',
-              border: '8px solid rgb(59 130 246)',
-              borderTopColor: 'rgb(99 102 241)',
+              position: 'absolute', inset: 0, borderRadius: '50%',
+              border: '12px solid rgb(241 245 249)',
+              borderTopColor: 'rgb(59 130 246)',
               borderRightColor: 'rgb(168 85 247)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              position: 'relative'
-            }}>
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginTop: '1.5rem'
-              }}>
-                <span style={{
-                  fontSize: '8px',
-                  fontWeight: 700,
-                  color: 'rgb(148 163 184)'
-                }}>Total Sales</span>
-                <span style={{
-                  fontSize: '0.75rem',
-                  fontWeight: 800,
-                  color: 'rgb(30 41 59)'
-                }}>6,248 Units</span>
-              </div>
+              transform: 'rotate(-45deg)'
+            }}></div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '10px', color: 'rgb(100 116 139)', fontWeight: 600, textTransform: 'uppercase' }}>Total Sales</div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'rgb(15 23 42)' }}>6,248</div>
             </div>
           </div>
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.375rem',
-            marginTop: '0.5rem'
-          }}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              fontSize: '8px',
-              fontWeight: 700
-            }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.375rem'
-              }}>
-                <div style={{
-                  width: '6px',
-                  height: '6px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgb(99 102 241)'
-                }}></div>
-                <span style={{ color: 'rgb(100 116 139)' }}>Smartphones</span>
+          <div style={{ width: '100%', marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            {[
+              { label: 'Smartphones', val: '3,849', color: 'rgb(59 130 246)' },
+              { label: 'Laptops', val: '750', color: 'rgb(168 85 247)' },
+              { label: 'Accessories', val: '1,649', color: 'rgb(241 245 249)' }
+            ].map((item, i) => (
+              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '11px', fontWeight: 600 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <div style={{ width: '8px', height: '8px', borderRadius: '2px', backgroundColor: item.color }}></div>
+                  <span style={{ color: 'rgb(71 85 105)' }}>{item.label}</span>
+                </div>
+                <span style={{ color: 'rgb(15 23 42)' }}>{item.val} Unit</span>
               </div>
-              <span style={{ color: 'rgb(51 65 85)' }}>3,849 Unit</span>
-            </div>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              fontSize: '8px',
-              fontWeight: 700
-            }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.375rem'
-              }}>
-                <div style={{
-                  width: '6px',
-                  height: '6px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgb(168 85 247)'
-                }}></div>
-                <span style={{ color: 'rgb(100 116 139)' }}>Laptops</span>
-              </div>
-              <span style={{ color: 'rgb(51 65 85)' }}>750 Unit</span>
-            </div>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              fontSize: '8px',
-              fontWeight: 700
-            }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.375rem'
-              }}>
-                <div style={{
-                  width: '6px',
-                  height: '6px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgb(147 197 253)'
-                }}></div>
-                <span style={{ color: 'rgb(100 116 139)' }}>Accessories</span>
-              </div>
-              <span style={{ color: 'rgb(51 65 85)' }}>1,649 Unit</span>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -414,95 +135,29 @@ const DashboardMockup: React.FC = () => {
           gridColumn: 'span 12',
           marginTop: '0.5rem'
         }}>
-          <h4 style={{
-            fontSize: '0.875rem',
-            fontWeight: 700,
-            color: 'rgb(30 41 59)',
-            marginBottom: '1rem',
-            margin: 0,
-            marginBottom: '1rem'
-          }}>Product Transaction</h4>
-          <div style={{
-            overflow: 'hidden',
-            borderRadius: '0.5rem',
-            border: '1px solid rgb(241 245 249)',
-            backgroundColor: 'rgba(248 250 252, 0.5)'
-          }}>
-            <table style={{
-              width: '100%',
-              textAlign: 'left',
-              borderCollapse: 'collapse'
-            }}>
-              <thead style={{
-                fontSize: '9px',
-                fontWeight: 700,
-                color: 'rgb(148 163 184)',
-                textTransform: 'uppercase',
-                backgroundColor: 'rgb(248 250 252)',
-                borderBottom: '1px solid rgb(241 245 249)'
-              }}>
+          <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'rgb(15 23 42)', marginBottom: '1rem' }}>Recent Transactions</h4>
+          <div style={{ overflow: 'hidden', borderRadius: '1rem', border: '1px solid rgb(241 245 249)' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+              <thead style={{ backgroundColor: 'rgb(248 250 252)', borderBottom: '1px solid rgb(226 232 240)' }}>
                 <tr>
-                  <th style={{ padding: '0.5rem 0.75rem' }}>Order ID</th>
-                  <th style={{ padding: '0.5rem 0.75rem' }}>Product Name</th>
-                  <th style={{ padding: '0.5rem 0.75rem' }}>Date</th>
-                  <th style={{ padding: '0.5rem 0.75rem', textAlign: 'right' }}>Price</th>
-                  <th style={{ padding: '0.5rem 0.75rem', textAlign: 'center' }}>Status</th>
+                  {['Order ID', 'Product Name', 'Date', 'Price', 'Status'].map((h, i) => (
+                    <th key={i} style={{ padding: '1rem', fontSize: '10px', fontWeight: 700, color: 'rgb(100 116 139)', textTransform: 'uppercase', textAlign: i >= 3 ? (i === 4 ? 'center' : 'right') : 'left' }}>{h}</th>
+                  ))}
                 </tr>
               </thead>
-              <tbody style={{
-                fontSize: '9px',
-                fontWeight: 500,
-                color: 'rgb(71 85 105)'
-              }}>
+              <tbody style={{ backgroundColor: 'white' }}>
                 {[
-                  { id: '#ZOP980131-9N', name: 'Premium Plan', date: '13 Feb, 2025', price: '$449', status: 'Unpaid', statusColor: 'rgb(244 63 94)', statusBg: 'rgb(255 241 242)' },
-                  { id: '#ZOP980130-8N', name: 'Enterprise License', date: '13 Feb, 2025', price: '$1,198', status: 'Pending', statusColor: 'rgb(245 158 11)', statusBg: 'rgb(255 251 235)' },
-                  { id: '#ZOP980129-7N', name: 'Basic Subscription', date: '13 Feb, 2025', price: '$999', status: 'Paid', statusColor: 'rgb(16 185 129)', statusBg: 'rgb(236 253 245)' },
-                ].map((row, idx) => (
-                  <tr key={idx} style={{
-                    backgroundColor: 'white',
-                    borderBottom: idx < 2 ? '1px solid rgb(241 245 249)' : 'none'
-                  }}>
-                    <td style={{
-                      padding: '0.5rem 0.75rem',
-                      fontWeight: 700,
-                      color: 'rgb(30 41 59)'
-                    }}>{row.id}</td>
-                    <td style={{
-                      padding: '0.5rem 0.75rem',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.5rem'
-                    }}>
-                      <div style={{
-                        width: '16px',
-                        height: '16px',
-                        borderRadius: '0.25rem',
-                        backgroundColor: 'rgb(241 245 249)'
-                      }}></div>
-                      {row.name}
-                    </td>
-                    <td style={{ padding: '0.5rem 0.75rem' }}>{row.date}</td>
-                    <td style={{
-                      padding: '0.5rem 0.75rem',
-                      textAlign: 'right',
-                      fontWeight: 700
-                    }}>${row.price}</td>
-                    <td style={{
-                      padding: '0.5rem 0.75rem',
-                      textAlign: 'center'
-                    }}>
-                      <span style={{
-                        padding: '0.125rem 0.5rem',
-                        borderRadius: '9999px',
-                        fontWeight: 700,
-                        textTransform: 'uppercase',
-                        fontSize: '7px',
-                        color: row.statusColor,
-                        backgroundColor: row.statusBg
-                      }}>
-                        {row.status}
-                      </span>
+                  { id: '#ZOP980131', name: 'Premium Plan', date: '13 Feb, 2025', price: '$449.00', status: 'Unpaid', color: 'rgb(239 68 68)', bg: 'rgb(254 242 242)' },
+                  { id: '#ZOP980130', name: 'Enterprise Lic', date: '13 Feb, 2025', price: '$1,198.00', status: 'Pending', color: 'rgb(245 158 11)', bg: 'rgb(255 251 235)' },
+                  { id: '#ZOP980129', name: 'Basic Sub', date: '12 Feb, 2025', price: '$99.00', status: 'Paid', color: 'rgb(34 197 94)', bg: 'rgb(240 253 244)' }
+                ].map((row, i) => (
+                  <tr key={i} style={{ borderBottom: i < 2 ? '1px solid rgb(241 245 249)' : 'none' }}>
+                    <td style={{ padding: '1rem', fontSize: '12px', fontWeight: 600, color: 'rgb(15 23 42)' }}>{row.id}</td>
+                    <td style={{ padding: '1rem', fontSize: '12px', color: 'rgb(51 65 85)' }}>{row.name}</td>
+                    <td style={{ padding: '1rem', fontSize: '12px', color: 'rgb(100 116 139)' }}>{row.date}</td>
+                    <td style={{ padding: '1rem', fontSize: '12px', fontWeight: 600, color: 'rgb(15 23 42)', textAlign: 'right' }}>{row.price}</td>
+                    <td style={{ padding: '1rem', textAlign: 'center' }}>
+                      <span style={{ fontSize: '10px', fontWeight: 700, color: row.color, backgroundColor: row.bg, padding: '0.25rem 0.75rem', borderRadius: '9999px', textTransform: 'uppercase' }}>{row.status}</span>
                     </td>
                   </tr>
                 ))}

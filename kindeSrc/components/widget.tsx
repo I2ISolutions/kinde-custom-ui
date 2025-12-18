@@ -20,14 +20,14 @@ export const Widget = (props: { heading: string; description: string }) => {
   return (
     <main style={{ 
       width: '100%', 
-      maxWidth: '400px', 
+      maxWidth: '440px', // Slightly wider for enterprise feel
       margin: '0 auto', 
       padding: '0',
       opacity: 0,
       animation: 'fadeIn 0.8s ease-out forwards'
     }}>
       <div style={{ 
-        marginBottom: '3rem', 
+        marginBottom: '3.5rem', 
         display: 'flex', 
         justifyContent: 'flex-start', 
         width: '100%',
@@ -37,23 +37,23 @@ export const Widget = (props: { heading: string; description: string }) => {
         <Logo src={logoUrl} />
       </div>
 
-      <div style={{ marginBottom: '2.5rem', textAlign: 'left' }}>
+      <div style={{ marginBottom: '3rem', textAlign: 'left' }}>
         <h1 style={{ 
           fontSize: '36px', 
-          fontWeight: 800, 
+          fontWeight: 700, 
           color: 'rgb(15 23 42)', 
           marginBottom: '1rem',
-          letterSpacing: '-0.03em',
+          letterSpacing: '-0.02em',
           lineHeight: '1.2'
         }}>
           {props.heading}
         </h1>
         <p style={{ 
           color: 'rgb(100 116 139)', 
-          fontWeight: 500, 
+          fontWeight: 400, 
           fontSize: '1.125rem',
           lineHeight: '1.6',
-          maxWidth: '320px'
+          maxWidth: '360px'
         }}>
           {props.description}
         </p>
@@ -61,18 +61,18 @@ export const Widget = (props: { heading: string; description: string }) => {
 
       <div style={{ width: '100%' }}>
         {/* Kinde Widget Container */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           {isLocalDev ? <MockKindeWidget /> : widgetContent}
         </div>
       </div>
 
-      <div style={{ marginTop: '3.5rem', textAlign: 'left', fontSize: '0.875rem', color: 'rgb(148 163 184)' }}>
+      <div style={{ marginTop: '4rem', textAlign: 'left', fontSize: '0.875rem', color: 'rgb(148 163 184)' }}>
         <div style={{ display: 'flex', justifyContent: 'flex-start', gap: '2rem', marginBottom: '1.5rem' }}>
-          <a href="#" style={{ fontWeight: 600, color: 'rgb(71 85 105)', textDecoration: 'none', transition: 'color 0.2s' }}>Privacy</a>
-          <a href="#" style={{ fontWeight: 600, color: 'rgb(71 85 105)', textDecoration: 'none', transition: 'color 0.2s' }}>Terms</a>
-          <a href="#" style={{ fontWeight: 600, color: 'rgb(71 85 105)', textDecoration: 'none', transition: 'color 0.2s' }}>Help</a>
+          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none', transition: 'color 0.2s' }}>Privacy</a>
+          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none', transition: 'color 0.2s' }}>Terms</a>
+          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none', transition: 'color 0.2s' }}>Help</a>
         </div>
-        <p style={{ margin: 0, opacity: 0.8 }}>
+        <p style={{ margin: 0, opacity: 0.8, fontSize: '0.875rem' }}>
           &copy; {new Date().getFullYear()} Zopkit Inc. All rights reserved.
         </p>
       </div>
