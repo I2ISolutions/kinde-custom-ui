@@ -35,7 +35,7 @@ export const DefaultLayout = (props: { children: React.ReactNode }) => {
           flexDirection: 'column',
           justifyContent: 'center',
           backgroundColor: 'white',
-          padding: '2rem',
+          padding: '3rem',
           position: 'relative',
           zIndex: 10,
           overflowY: 'auto'
@@ -43,9 +43,9 @@ export const DefaultLayout = (props: { children: React.ReactNode }) => {
           {props.children}
         </div>
 
-        {/* Right side - Hero/Image */}
-        <div style={{
-          display: 'none', // Hidden on mobile
+        {/* Right side - Hero/Image - Hidden on mobile, shown on desktop via CSS */}
+        <div id="marketing-panel" style={{
+          display: 'none',
           width: '58.333333%',
           height: '100%',
           position: 'relative',

@@ -1,11 +1,14 @@
 import React from "react";
-import { getKindeWidget } from "@kinde/infrastructure";
+import { getKindeWidget, getLogoUrl } from "@kinde/infrastructure";
 import { Logo } from "./logo";
 import { MockKindeWidget } from "./mock-widget";
 
 export const Widget = (props: { heading: string; description: string }) => {
-  // Use provided logo or fallback to Kinde's
-  const logoUrl = "https://res.cloudinary.com/dr9vzaa7u/image/upload/v1765126845/Zopkit_Simple_Logo_glohfr.jpg";
+  // Use Kinde's logo URL or fallback to Zopkit logo
+  const kindeLogoUrl = getLogoUrl();
+  const logoUrl = kindeLogoUrl && kindeLogoUrl !== '/logo' 
+    ? kindeLogoUrl 
+    : "https://res.cloudinary.com/dr9vzaa7u/image/upload/v1765126845/Zopkit_Simple_Logo_glohfr.jpg";
 
   // Check if we're in local development (getKindeWidget returns a string ID or invalid content)
   const widgetContent = getKindeWidget();
@@ -48,13 +51,13 @@ export const Widget = (props: { heading: string; description: string }) => {
         </div>
       </div>
 
-      <div style={{ marginTop: '3rem', textAlign: 'center', fontSize: '0.875rem', color: 'rgb(148 163 184)' }}>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
-          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none' }}>Privacy</a>
-          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none' }}>Terms</a>
-          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none' }}>Help</a>
+      <div style={{ marginTop: '3rem', textAlign: 'left', fontSize: '0.875rem', color: 'rgb(148 163 184)' }}>
+        <div style={{ display: 'flex', justifyContent: 'flex-start', gap: '1.5rem', marginBottom: '1.5rem' }}>
+          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none', transition: 'color 0.2s' }}>Privacy</a>
+          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none', transition: 'color 0.2s' }}>Terms</a>
+          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none', transition: 'color 0.2s' }}>Help</a>
         </div>
-        <p>
+        <p style={{ margin: 0 }}>
           &copy; {new Date().getFullYear()} Zopkit Inc. All rights reserved.
         </p>
       </div>

@@ -149,18 +149,37 @@ export const Layout = async ({
               box-shadow: 0 10px 15px -3px rgb(15 23 42 / 0.3);
             }
             
+            /* Ensure body and html take full height */
+            html, body {
+              height: 100%;
+              margin: 0;
+              padding: 0;
+            }
+            
+            [data-kinde-root] {
+              height: 100vh;
+              width: 100%;
+            }
+            
+            [data-kinde-root] > div {
+              display: flex;
+              width: 100%;
+              height: 100%;
+              flex-direction: column;
+            }
+            
             /* Responsive layout for desktop */
             @media (min-width: 1024px) {
               [data-kinde-root] > div {
-                display: flex !important;
-                width: 100% !important;
-                height: 100% !important;
+                flex-direction: row !important;
               }
               [data-kinde-root] > div > div:first-child {
                 width: 41.666667% !important;
                 flex-shrink: 0;
+                max-width: 500px;
               }
-              [data-kinde-root] > div > div:last-child {
+              [data-kinde-root] > div > div:last-child,
+              #marketing-panel {
                 display: block !important;
                 width: 58.333333% !important;
                 height: 100% !important;
@@ -171,19 +190,18 @@ export const Layout = async ({
               }
             }
             
-            /* Ensure body and html take full height */
-            html, body {
-              height: 100%;
-              margin: 0;
-              padding: 0;
-            }
-            
             /* Logo styling */
             img[alt="Zopkit"] {
               height: 5rem !important;
               width: auto !important;
               max-width: 200px !important;
               object-fit: contain !important;
+              display: block !important;
+            }
+            
+            /* Link hover effects */
+            a:hover {
+              color: rgb(15 23 42) !important;
             }
           `
         }} />
