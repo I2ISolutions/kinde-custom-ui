@@ -8,10 +8,11 @@ interface WidgetProps {
 }
 
 export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
-  // Use Kinde's logo URL or fallback to Zopkit logo.
+  // Use Kinde's logo URL or fallback to Zopkit text logo.
   const kindeLogoUrl = getLogoUrl();
-  // Use the provided Cloudinary URL as the primary logo to ensure visibility
-  const logoUrl = "https://res.cloudinary.com/dr9vzaa7u/image/upload/v1765126845/Zopkit_Simple_Logo_glohfr.jpg";
+  // Force text logo fallback to ensure visibility if image is broken or missing
+  const logoUrl = undefined; 
+    // kindeLogoUrl && kindeLogoUrl !== "/logo" ? kindeLogoUrl : undefined;
 
   // Always use production Kinde widget
   const widgetContent = getKindeWidget();
