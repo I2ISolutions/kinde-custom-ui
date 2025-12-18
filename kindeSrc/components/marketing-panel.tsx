@@ -34,6 +34,7 @@ const MarketingPanel: React.FC = () => {
     >
       {/* Sophisticated Ambient Background */}
       <div 
+        className="animate-pulse-slow"
         style={{
             position: 'absolute',
             top: 0,
@@ -61,6 +62,23 @@ const MarketingPanel: React.FC = () => {
         }}
       />
 
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.8; }
+          50% { opacity: 1; }
+        }
+        .animate-pulse-slow {
+          animation: pulse-slow 8s ease-in-out infinite;
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+      `}} />
+
       <div style={{ 
         width: "100%", 
         maxWidth: "800px", 
@@ -70,23 +88,25 @@ const MarketingPanel: React.FC = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: "2rem"
+        gap: "3rem"
       }}>
-        <div style={{
+        <div className="animate-float" style={{
             display: "inline-flex",
             alignItems: "center",
-            padding: "0.5rem 1rem",
+            padding: "0.75rem 1.5rem",
             borderRadius: "9999px",
-            background: "rgba(255, 255, 255, 0.05)",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
+            background: "rgba(255, 255, 255, 0.03)",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
             backdropFilter: "blur(10px)",
-            marginBottom: "1rem"
+            marginBottom: "1rem",
+            boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
         }}>
             <span style={{
                 fontSize: "0.875rem",
                 fontWeight: 600,
                 color: "#e2e8f0",
-                letterSpacing: "0.02em",
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
                 fontFamily: '"Inter", sans-serif',
             }}>
                 The Operating System for Business
@@ -95,22 +115,24 @@ const MarketingPanel: React.FC = () => {
 
         <h2
           style={{
-            fontSize: "clamp(3rem, 6vw, 5rem)",
+            fontSize: "clamp(3.5rem, 7vw, 6rem)",
             fontWeight: 800,
             color: "white",
-            lineHeight: "1.1",
-            letterSpacing: "-0.02em",
+            lineHeight: "1.05",
+            letterSpacing: "-0.03em",
             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
             margin: 0,
+            textShadow: "0 0 40px rgba(255,255,255,0.1)"
           }}
         >
           Unified Control.
           <br />
           <span style={{ 
-            background: "linear-gradient(135deg, #fff 30%, #94a3b8 100%)", 
+            background: "linear-gradient(135deg, #fff 0%, #94a3b8 100%)", 
             WebkitBackgroundClip: "text", 
             WebkitTextFillColor: "transparent", 
-            backgroundClip: "text" 
+            backgroundClip: "text",
+            filter: "drop-shadow(0 0 20px rgba(255,255,255,0.2))"
           }}>
             Limitless Growth.
           </span>
@@ -118,10 +140,10 @@ const MarketingPanel: React.FC = () => {
         
         <p
           style={{
-            fontSize: "1.25rem",
+            fontSize: "1.35rem",
             color: "#94a3b8",
             lineHeight: "1.6",
-            maxWidth: "600px",
+            maxWidth: "640px",
             fontWeight: 400,
             fontFamily: '"Inter", sans-serif',
             margin: 0,
@@ -142,11 +164,11 @@ const MarketingPanel: React.FC = () => {
             {/* Connecting Line */}
             <div style={{
                 position: "absolute",
-                top: "24px",
-                left: "10%",
-                right: "10%",
-                height: "2px",
-                background: "linear-gradient(90deg, rgba(99, 102, 241, 0), rgba(99, 102, 241, 0.3) 20%, rgba(99, 102, 241, 0.3) 80%, rgba(99, 102, 241, 0))",
+                top: "28px",
+                left: "15%",
+                right: "15%",
+                height: "1px",
+                background: "linear-gradient(90deg, rgba(99, 102, 241, 0), rgba(99, 102, 241, 0.5) 20%, rgba(99, 102, 241, 0.5) 80%, rgba(99, 102, 241, 0))",
                 zIndex: 0
             }} />
 
@@ -161,28 +183,30 @@ const MarketingPanel: React.FC = () => {
                     maxWidth: "200px"
                 }}>
                     <div style={{
-                        width: "48px",
-                        height: "48px",
+                        width: "56px",
+                        height: "56px",
                         borderRadius: "50%",
-                        background: "#0f172a",
-                        border: "2px solid rgba(99, 102, 241, 0.3)",
+                        background: "rgba(15, 23, 42, 0.8)",
+                        border: "1px solid rgba(99, 102, 241, 0.4)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        color: "#6366f1",
-                        fontSize: "0.875rem",
+                        color: "#818cf8",
+                        fontSize: "1rem",
                         fontWeight: 700,
                         marginBottom: "1.5rem",
-                        boxShadow: "0 0 20px rgba(99, 102, 241, 0.1)"
+                        boxShadow: "0 0 30px rgba(99, 102, 241, 0.2)",
+                        backdropFilter: "blur(4px)"
                     }}>
                         {step.number}
                     </div>
                     <h3 style={{
-                        fontSize: "1rem",
+                        fontSize: "1.125rem",
                         fontWeight: 600,
                         color: "white",
                         marginBottom: "0",
                         fontFamily: '"Inter", sans-serif',
+                        textShadow: "0 2px 4px rgba(0,0,0,0.3)"
                     }}>
                         {step.title}
                     </h3>
