@@ -50,7 +50,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
             fontSize: "clamp(1.75rem, 4vh, 2.5rem)",
             fontWeight: 800,
             color: "#0f172a",
-            marginBottom: "0.75rem",
+            marginBottom: "1.5rem",
             letterSpacing: "-0.03em",
             lineHeight: "1.1",
             fontFamily: '"Inter", sans-serif',
@@ -58,21 +58,6 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         >
           {heading}
         </h1>
-        <p
-          style={{
-            color: "#64748b",
-            fontSize: "0.875rem",
-            lineHeight: "1.5",
-            fontWeight: 400,
-            marginBottom: "2rem",
-            letterSpacing: "0.01em",
-            maxWidth: "100%",
-            fontFamily: '"Inter", sans-serif',
-          }}
-        >
-          {description ||
-            "Sign in to access your unified business operations platform. Manage CRM, HRMS, Finance, Operations, Projects, and Affiliate Marketing—all integrated in one secure, multi-tenant system."}
-        </p>
 
         {/* Enterprise Module Portfolio */}
         <div

@@ -120,7 +120,7 @@ const MarketingPanel: React.FC = () => {
           style={{
             width: "100%",
             maxWidth: "100%",
-            transform: "perspective(2000px) rotateX(12deg) rotateY(-8deg) rotateZ(2deg) scale(0.85)",
+            transform: "perspective(2000px) rotateX(12deg) rotateY(-8deg) rotateZ(2deg) scale(1.05)",
             transformOrigin: "center center",
             filter: "drop-shadow(0 60px 120px rgba(0,0,0,0.7))",
             transition: "transform 0.3s ease",
