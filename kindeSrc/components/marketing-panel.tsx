@@ -1,193 +1,172 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { WORKFLOW_STEPS } from "../constants";
 
 const MarketingPanel: React.FC = () => {
-  const steps = [
-    {
-      number: "01",
-      title: "Unified Login",
-    },
-    {
-      number: "02",
-      title: "Access Any Application",
-    },
-    {
-      number: "03",
-      title: "Use The Application",
-    }
-  ];
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMove = (e: MouseEvent) => {
+      setMousePos({ 
+        x: (e.clientX / window.innerWidth - 0.5) * 50, 
+        y: (e.clientY / window.innerHeight - 0.5) * 50 
+      });
+    };
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
+  }, []);
+
+  const containerStyle: React.CSSProperties = {
+    position: "relative",
+    width: "100%",
+    height: "100%",
+    background: "#020617",
+    display: "flex",
+    flexDirection: "column",
+    padding: "clamp(2rem, 5vw, 5rem)",
+    overflow: "hidden",
+    color: "#fff",
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+  };
+
+  const meshStyle: React.CSSProperties = {
+    position: "absolute",
+    inset: 0,
+    background: `
+      radial-gradient(circle at ${50 + mousePos.x * 0.5}% ${30 + mousePos.y * 0.5}%, rgba(99, 102, 241, 0.18) 0%, transparent 50%),
+      radial-gradient(circle at ${80 - mousePos.x}% ${70 - mousePos.y}%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at ${20 + mousePos.x}% ${80 + mousePos.y}%, rgba(56, 189, 248, 0.1) 0%, transparent 50%)
+    `,
+    pointerEvents: "none",
+    zIndex: 1
+  };
+
+  const gridStyle: React.CSSProperties = {
+    position: "absolute",
+    inset: 0,
+    backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
+    backgroundSize: "80px 80px",
+    maskImage: "radial-gradient(ellipse at center, black 20%, transparent 90%)",
+    pointerEvents: "none",
+    zIndex: 0
+  };
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "clamp(3rem, 8vw, 6rem)",
-        overflow: "hidden",
-        position: "relative",
-        background: "#020617", // Richer, deeper black/slate
-        boxSizing: "border-box",
-      }}
-    >
-      {/* Sophisticated Ambient Background */}
-      <div 
-        style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            background: `
-                radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 0% 100%, rgba(56, 189, 248, 0.1) 0%, transparent 50%)
-            `,
-            pointerEvents: 'none',
-        }}
-      />
+    <div style={containerStyle}>
+      <div style={meshStyle} />
+      <div style={gridStyle} />
 
-      {/* Subtle Grid - clearer and finer */}
-      <div 
-        style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
-                            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)`,
-            backgroundSize: '100px 100px',
-            maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 100%)',
-            pointerEvents: 'none',
-        }}
-      />
+      {/* Dynamic Data Nodes */}
+      {[...Array(8)].map((_, i) => (
+        <div 
+          key={i}
+          style={{
+            position: "absolute",
+            width: i % 2 === 0 ? "6px" : "3px",
+            height: i % 2 === 0 ? "6px" : "3px",
+            borderRadius: "50%",
+            backgroundColor: i % 3 === 0 ? "#10b981" : "#6366f1",
+            boxShadow: `0 0 20px ${i % 3 === 0 ? "#10b981" : "#6366f1"}`,
+            top: `${15 + (i * 12)}%`,
+            left: `${10 + (i * 9)}%`,
+            transform: `translate(${mousePos.x * (0.1 + i * 0.05)}px, ${mousePos.y * (0.1 + i * 0.05)}px)`,
+            transition: "transform 0.15s cubic-bezier(0.23, 1, 0.32, 1)",
+            opacity: 0.3 + (i * 0.05),
+            zIndex: 2
+          }}
+        />
+      ))}
 
-      <div style={{ 
-        width: "100%", 
-        maxWidth: "800px", 
-        textAlign: "center", 
-        position: "relative", 
-        zIndex: 10,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "2rem"
-      }}>
+      <div style={{ position: "relative", zIndex: 10, flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
         <div style={{
-            display: "inline-flex",
-            alignItems: "center",
-            padding: "0.5rem 1rem",
-            borderRadius: "9999px",
-            background: "rgba(255, 255, 255, 0.05)",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
-            backdropFilter: "blur(10px)",
-            marginBottom: "1rem"
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "10px",
+          padding: "8px 16px",
+          borderRadius: "99px",
+          backgroundColor: "rgba(255,255,255,0.03)",
+          border: "1px solid rgba(255,255,255,0.08)",
+          backdropFilter: "blur(12px)",
+          marginBottom: "48px",
+          alignSelf: "flex-start",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
         }}>
-            <span style={{
-                fontSize: "0.875rem",
-                fontWeight: 600,
-                color: "#e2e8f0",
-                letterSpacing: "0.02em",
-                fontFamily: '"Inter", sans-serif',
-            }}>
-                The Operating System for Business
-            </span>
+          <div style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: "#6366f1", boxShadow: "0 0 8px #6366f1" }} />
+          <span style={{ fontSize: "11px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em", color: "#94a3b8" }}>
+            Zopkit Enterprise Core v4.0
+          </span>
         </div>
 
-        <h2
-          style={{
-            fontSize: "clamp(3rem, 6vw, 5rem)",
-            fontWeight: 800,
-            color: "white",
-            lineHeight: "1.1",
-            letterSpacing: "-0.02em",
-            fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-            margin: 0,
-          }}
-        >
-          Unified Control.
-          <br />
-          <span style={{ 
-            background: "linear-gradient(135deg, #fff 30%, #94a3b8 100%)", 
-            WebkitBackgroundClip: "text", 
-            WebkitTextFillColor: "transparent", 
-            backgroundClip: "text" 
+        <h1 style={{
+          fontSize: "clamp(3.5rem, 7vw, 6.5rem)",
+          fontWeight: 900,
+          lineHeight: 0.9,
+          letterSpacing: "-0.05em",
+          marginBottom: "40px",
+          color: "#fff"
+        }}>
+          Unified core. <br />
+          <span style={{
+            background: "linear-gradient(135deg, #fff 20%, #6366f1 80%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            display: "inline-block"
           }}>
-            Limitless Growth.
+            Limitless scale.
           </span>
-        </h2>
-        
-        <p
-          style={{
-            fontSize: "1.25rem",
-            color: "#94a3b8",
-            lineHeight: "1.6",
-            maxWidth: "600px",
-            fontWeight: 400,
-            fontFamily: '"Inter", sans-serif',
-            margin: 0,
-          }}
-        >
-          Zopkit consolidates your entire enterprise stack—Revenue, HR, Finance, and Operations—into a single, intelligent source of truth.
+        </h1>
+
+        <p style={{
+          fontSize: "1.25rem",
+          color: "#94a3b8",
+          lineHeight: 1.6,
+          maxWidth: "520px",
+          fontWeight: 500,
+          marginBottom: "72px"
+        }}>
+          One infrastructure. Infinite possibilities. Orchestrate your global revenue, operations, and workforce from a single sovereign control plane.
         </p>
 
-        {/* Workflow Stepper */}
-        <div style={{
-            marginTop: "4rem",
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            gap: "2rem",
-            position: "relative"
-        }}>
-            {/* Connecting Line */}
-            <div style={{
-                position: "absolute",
-                top: "24px",
-                left: "10%",
-                right: "10%",
-                height: "2px",
-                background: "linear-gradient(90deg, rgba(99, 102, 241, 0), rgba(99, 102, 241, 0.3) 20%, rgba(99, 102, 241, 0.3) 80%, rgba(99, 102, 241, 0))",
-                zIndex: 0
-            }} />
+        <div style={{ display: "flex", gap: "64px", flexWrap: "wrap" }}>
+          {WORKFLOW_STEPS.map((step, i) => (
+            <div key={i} style={{ display: "flex", flexDirection: "column", gap: "12px", borderLeft: "2px solid rgba(99, 102, 241, 0.2)", paddingLeft: "24px" }}>
+              <span style={{ color: "#6366f1", fontSize: "14px", fontWeight: 900, letterSpacing: "0.1em" }}>{step.number}</span>
+              <span style={{ fontSize: "16px", fontWeight: 700, color: "#f8fafc" }}>{step.title}</span>
+              <p style={{ fontSize: "12px", color: "#64748b", maxWidth: "180px", margin: 0 }}>{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
-            {steps.map((step, index) => (
-                <div key={index} style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    position: "relative",
-                    zIndex: 1,
-                    flex: 1,
-                    maxWidth: "200px"
-                }}>
-                    <div style={{
-                        width: "48px",
-                        height: "48px",
-                        borderRadius: "50%",
-                        background: "#0f172a",
-                        border: "2px solid rgba(99, 102, 241, 0.3)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "#6366f1",
-                        fontSize: "0.875rem",
-                        fontWeight: 700,
-                        marginBottom: "1.5rem",
-                        boxShadow: "0 0 20px rgba(99, 102, 241, 0.1)"
-                    }}>
-                        {step.number}
-                    </div>
-                    <h3 style={{
-                        fontSize: "1rem",
-                        fontWeight: 600,
-                        color: "white",
-                        marginBottom: "0",
-                        fontFamily: '"Inter", sans-serif',
-                    }}>
-                        {step.title}
-                    </h3>
-                </div>
-            ))}
+      <div style={{ 
+        position: "relative", 
+        zIndex: 10, 
+        display: "flex", 
+        justifyContent: "space-between", 
+        alignItems: "center", 
+        paddingTop: "48px", 
+        borderTop: "1px solid rgba(255,255,255,0.06)" 
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <div style={{ width: "32px", height: "32px", backgroundColor: "#fff", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#020617" strokeWidth="2.5">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" />
+              <path d="M2 17L12 22L22 17" />
+              <path d="M2 12L12 17L22 12" />
+            </svg>
+          </div>
+          <span style={{ fontSize: "12px", fontWeight: 900, letterSpacing: "0.15em", color: "rgba(255,255,255,0.5)", textTransform: "uppercase" }}>
+            Zopkit Systems
+          </span>
+        </div>
+        <div style={{ display: "flex", gap: "32px" }}>
+          {['SOC-II Type 2', 'ISO 27001', 'End-to-End Encrypted'].map(tag => (
+            <div key={tag} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="3">
+                <path d="M20 6L9 17L4 12" />
+              </svg>
+              <span style={{ fontSize: "11px", fontWeight: 800, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.05em" }}>{tag}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
