@@ -7,11 +7,6 @@ export const Widget = (props: { heading: string; description: string }) => {
   // Use provided logo or fallback to Kinde's
   const logoUrl = "https://res.cloudinary.com/dr9vzaa7u/image/upload/v1765126845/Zopkit_Simple_Logo_glohfr.jpg";
 
-  // Check if we are running in development/local mode
-  // The getKindeWidget() usually returns a string ID in local dev environment
-  const widgetContent = getKindeWidget();
-  const isDev = typeof widgetContent === 'string' && widgetContent.startsWith('@');
-
   return (
     <main className="w-full max-w-[400px] mx-auto px-6 lg:px-0">
       <div className="mb-12 flex justify-center lg:justify-start">
@@ -29,13 +24,9 @@ export const Widget = (props: { heading: string; description: string }) => {
 
       <div className="w-full">
         {/* Kinde Widget Container */}
-        {isDev ? (
-          <MockKindeWidget />
-        ) : (
-          <div className="space-y-6">
-            {widgetContent}
-          </div>
-        )}
+        <div className="space-y-6">
+          {getKindeWidget()}
+        </div>
       </div>
 
       <div className="mt-12 text-center lg:text-left text-sm text-slate-400">

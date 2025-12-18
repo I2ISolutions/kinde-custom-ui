@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 interface LogoProps {
@@ -7,10 +5,6 @@ interface LogoProps {
 }
 
 export const Logo: React.FC<LogoProps> = ({ src }) => {
-  const [isVisible, setIsVisible] = React.useState(true);
-
-  if (!isVisible) return null;
-//TODO: Add a logo animation
   return (
     <div className="flex items-center justify-center mb-3">
       <div className="relative group">
@@ -22,7 +16,6 @@ export const Logo: React.FC<LogoProps> = ({ src }) => {
             src={src}
             alt="Zopkit"
             className="h-20 w-auto object-contain rounded-2xl drop-shadow-2xl filter brightness-110"
-            onError={() => setIsVisible(false)}
           />
         </div>
       </div>

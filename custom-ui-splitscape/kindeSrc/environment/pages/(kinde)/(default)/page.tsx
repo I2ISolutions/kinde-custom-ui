@@ -1,67 +1,60 @@
+"use server";
+
+import { renderToString } from "react-dom/server.browser";
+import {
+  getKindeRequiredCSS,
+  getKindeRequiredJS,
+  getKindeNonce,
+  getKindeCSRF,
+  getSVGFaviconUrl,
+  setKindeDesignerCustomProperties,
+  type KindePageEvent,
+} from "@kinde/infrastructure";
 import { Widget } from "../../../components/widget";
 import { DefaultLayout } from "../../../layouts/default";
-import { Root } from "../../../root";
-import { type KindePageEvent } from "@kinde/infrastructure";
-import React from "react";
-import { GetServerSideProps } from "next";
 
-interface PageProps {
-  kindeEvent: KindePageEvent;
-}
+const Layout = async ({ request, context }: KindePageEvent) => {
 
-const DefaultPage: React.FC<PageProps> = ({ kindeEvent }) => {
   return (
-    <Root context={kindeEvent.context} request={kindeEvent.request}>
-      <DefaultLayout>
-        <Widget
-          heading={kindeEvent.context.widget.content.heading}
-          description={kindeEvent.context.widget.content.description}
-        />
-      </DefaultLayout>
-    </Root>
+    <html lang={request.locale.lang} dir={request.locale.isRtl ? "rtl" : "ltr"}>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex" />
+        <meta name="csrf-token" content={getKindeCSRF()} />
+        <title>{context.widget.content.page_title}</title>
+        <link rel="icon" href={getSVGFaviconUrl()} type="image/svg+xml" />
+        {getKindeRequiredCSS()}
+        {getKindeRequiredJS()}
+        <style nonce={getKindeNonce()}>
+          {`:root {
+          ${setKindeDesignerCustomProperties({
+            baseBackgroundColor: "#ffffff",
+            baseLinkColor: "#0f172a",
+            buttonBorderRadius: "0.75rem",
+            primaryButtonBackgroundColor: "#0f172a",
+            primaryButtonColor: "#ffffff",
+            inputBorderRadius: "0.75rem",
+          })}}
+          `}
+        </style>
+        <link rel="stylesheet" href="/kindeSrc/styles/globals.css" />
+      </head>
+      <body>
+        <div data-kinde-root="/admin">
+          <DefaultLayout>
+            <Widget
+              heading={context.widget.content.heading}
+              description={context.widget.content.description}
+            />
+          </DefaultLayout>
+        </div>
+      </body>
+    </html>
   );
 };
 
-export default DefaultPage;
-
-// Note: Kinde custom UI pages receive event data via server-side props
-// This is a placeholder - the actual event data comes from Kinde's infrastructure
-export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
-  // In a real Kinde custom UI setup, the event data would be injected here
-  // For now, we'll provide a minimal structure to prevent errors
-  const kindeEvent: KindePageEvent = {
-    context: {
-      widget: {
-        content: {
-          page_title: "Zopkit - Login",
-          heading: "Welcome back to Zopkit",
-          description: "Sign in to access your dashboard",
-          logo_alt: "Zopkit Logo",
-        },
-      },
-    },
-    request: {
-      authUrlParams: {
-        orgCode: "org_default" as any,
-        state: "",
-        clientId: "",
-        redirectUri: "",
-      },
-      locale: {
-        isRtl: false,
-        lang: "en",
-      },
-      route: {
-        context: "login",
-        flow: "login",
-        path: "auth",
-      },
-    },
-  };
-
-  return {
-    props: {
-      kindeEvent,
-    },
-  };
-};
+export default async function Page(event: KindePageEvent) {
+  const page = await Layout(event);
+  return renderToString(page);
+}

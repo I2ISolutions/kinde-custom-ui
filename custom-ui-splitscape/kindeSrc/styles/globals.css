@@ -54,7 +54,7 @@
   /* Third-party Auth Buttons (Google) */
   [data-kinde-layout-auth-buttons-item] button,
   [data-kinde-button-secondary] {
-    @apply w-full flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 font-semibold hover:bg-slate-50 transition-all active:scale-[0.98];
+    @apply w-full flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 font-semibold hover:bg-slate-50 hover:border-slate-300 transition-all active:scale-[0.98] shadow-sm;
   }
 
   /* Primary inputs */
@@ -70,11 +70,5 @@
   /* Primary Submit Button */
   [data-kinde-button-primary] {
     @apply w-full rounded-xl bg-gradient-to-r from-slate-900 to-slate-800 px-4 py-3.5 text-base font-bold text-white shadow-lg shadow-slate-900/20 hover:from-slate-800 hover:to-slate-700 hover:shadow-slate-900/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 transition-all active:scale-[0.98] border border-white/10;
-  }
-
-  /* Third-party Auth Buttons (Google) */
-  [data-kinde-layout-auth-buttons-item] button,
-  [data-kinde-button-secondary] {
-    @apply w-full flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 font-semibold hover:bg-slate-50 hover:border-slate-300 transition-all active:scale-[0.98] shadow-sm;
   }
 }
