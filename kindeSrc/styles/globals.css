@@ -30,11 +30,11 @@
 @layer components {
   /* Layout Containers */
   .kinde-layout-wrapper {
-    @apply min-h-screen w-full bg-white font-sans;
+    @apply h-screen w-full bg-white font-sans overflow-hidden;
   }
 
   .kinde-layout-container {
-    @apply flex min-h-screen w-full overflow-hidden;
+    @apply flex h-full w-full overflow-hidden;
   }
 
   .kinde-login-panel {

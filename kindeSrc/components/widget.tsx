@@ -22,7 +22,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      padding: "clamp(2rem, 8vh, 6rem) 2rem",
+      padding: "clamp(2rem, 4vh, 4rem) 2rem",
       fontFamily: "'Inter', sans-serif"
     }}>
       {/* Primary Logo Placement Area */}
@@ -30,7 +30,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         display: "flex", 
         justifyContent: "space-between", 
         alignItems: "center", 
-        marginBottom: "64px",
+        marginBottom: "32px",
         padding: "0 4px" 
       }}>
         <div style={{ 
@@ -42,7 +42,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         </div>
         
         <div style={{
-          padding: "8px 16px",
+          padding: "6px 14px",
           borderRadius: "99px",
           backgroundColor: "#f8fafc",
           border: "1px solid #f1f5f9",
@@ -58,19 +58,19 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         </div>
       </div>
 
-      <div style={{ marginBottom: "56px" }}>
+      <div style={{ marginBottom: "32px" }}>
         <h1 style={{
-          fontSize: "clamp(2.5rem, 5vh, 3.25rem)",
+          fontSize: "clamp(2rem, 4vh, 2.75rem)",
           fontWeight: 900,
           color: "#0f172a",
           letterSpacing: "-0.045em",
           lineHeight: 1.05,
-          marginBottom: "20px"
+          marginBottom: "16px"
         }}>
           {heading}
         </h1>
         <p style={{
-          fontSize: "1.125rem",
+          fontSize: "1rem",
           color: "#64748b",
           lineHeight: 1.6,
           fontWeight: 500,
@@ -83,8 +83,8 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
       <div style={{ 
         display: "grid", 
         gridTemplateColumns: "repeat(2, 1fr)", 
-        gap: "20px", 
-        marginBottom: "56px"
+        gap: "16px", 
+        marginBottom: "32px"
       }}>
         {ENTERPRISE_MODULES.map((mod, i) => (
           <div 
@@ -93,9 +93,9 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
               display: "flex", 
               flexDirection: "column", 
               gap: "8px",
-              padding: "24px",
+              padding: "20px",
               backgroundColor: "#fff",
-              borderRadius: "20px",
+              borderRadius: "16px",
               border: "1px solid #f1f5f9",
               transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
               cursor: "default",
@@ -131,14 +131,14 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
                 {mod.name}
               </span>
             </div>
-            <span style={{ fontSize: "14px", fontWeight: 600, color: "#334155", marginTop: "4px", lineHeight: "1.4" }}>
+            <span style={{ fontSize: "13px", fontWeight: 600, color: "#334155", marginTop: "4px", lineHeight: "1.4" }}>
               {mod.detail}
             </span>
           </div>
         ))}
       </div>
 
-      <div style={{ position: "relative", marginBottom: "40px" }}>
+      <div style={{ position: "relative", marginBottom: "32px" }}>
         <div style={{ position: "absolute", top: "50%", left: 0, right: 0, height: "1px", backgroundColor: "#f1f5f9" }} />
         <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
           <span style={{ 
@@ -160,12 +160,12 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
       </div>
 
       <footer style={{ 
-        marginTop: "72px", 
+        marginTop: "48px", 
         display: "flex", 
         flexDirection: "row",
         justifyContent: "space-between", 
         alignItems: "center", 
-        paddingTop: "32px", 
+        paddingTop: "24px", 
         borderTop: "1px solid #f1f5f9" 
       }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
