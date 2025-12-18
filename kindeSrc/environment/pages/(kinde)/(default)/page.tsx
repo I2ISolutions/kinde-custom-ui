@@ -1,5 +1,6 @@
 "use server";
 
+import React from "react";
 import { renderToString } from "react-dom/server.browser";
 import {
   type KindePageEvent,
