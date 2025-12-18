@@ -10,22 +10,54 @@ const MarketingPanel: React.FC = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center", // Centered vertically
+        justifyContent: "center",
         height: "100%",
-        padding: "2rem", // Reduced padding
+        padding: "2rem",
         overflow: "hidden",
+        position: "relative",
       }}
     >
-      <div style={{ width: "100%", textAlign: "left", marginBottom: "2rem" }}>
+      {/* Background Grid Pattern */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage:
+            "radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px)",
+          backgroundSize: "30px 30px",
+          opacity: 0.3,
+          pointerEvents: "none",
+        }}
+      />
+      
+      {/* Ambient Glow */}
+      <div 
+        style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '120%',
+            height: '120%',
+            background: 'radial-gradient(circle at center, rgba(99, 102, 241, 0.15), transparent 60%)',
+            pointerEvents: 'none',
+        }}
+      />
+
+      <div style={{ width: "100%", textAlign: "left", marginBottom: "2.5rem", position: "relative", zIndex: 10 }}>
         <h2
           style={{
-            fontSize: "clamp(2.5rem, 4vw, 4rem)", // Reduced max size
+            fontSize: "clamp(2.5rem, 3.5vw, 4rem)",
             fontWeight: 900,
             color: "white",
-            lineHeight: "0.9",
+            lineHeight: "0.95",
             marginBottom: "1.5rem",
-            letterSpacing: "-0.02em", // Tighter tracking
-            fontFamily: '"Inter", sans-serif', // Explicit font
+            letterSpacing: "-0.03em",
+            fontFamily: '"Inter", sans-serif',
+            textShadow: "0 10px 30px rgba(0,0,0,0.5)",
           }}
         >
           UNIFIED CORE.
@@ -36,7 +68,7 @@ const MarketingPanel: React.FC = () => {
           <p
             style={{
               fontSize: "0.95rem",
-              color: "rgba(255, 255, 255, 0.7)",
+              color: "rgba(255, 255, 255, 0.8)",
               lineHeight: "1.6",
               maxWidth: "460px",
               fontWeight: 400,
@@ -52,11 +84,11 @@ const MarketingPanel: React.FC = () => {
               display: "flex",
               flexDirection: "column",
               gap: "0.5rem",
-              borderLeft: "1px solid rgba(255,255,255,0.15)",
+              borderLeft: "2px solid rgba(99, 102, 241, 0.5)", // Brighter indigo border
               paddingLeft: "1.5rem",
             }}
           >
-            <span style={{ fontSize: "0.5rem", fontWeight: 800, color: "#818cf8", letterSpacing: "0.2em", textTransform: "uppercase" }}>
+            <span style={{ fontSize: "0.5rem", fontWeight: 800, color: "#a5b4fc", letterSpacing: "0.2em", textTransform: "uppercase" }}>
               ARCHITECTURE
             </span>
             <span style={{ fontSize: "0.875rem", fontWeight: 700, color: "#ffffff", letterSpacing: "0.02em", fontFamily: '"JetBrains Mono", monospace' }}>
@@ -69,13 +101,15 @@ const MarketingPanel: React.FC = () => {
       <div
         style={{
           width: "100%",
-          transform: "perspective(2000px) rotateX(8deg) scale(0.8)", // Reduced scale and tilt
-          transformOrigin: "top center",
-          filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.6))",
+          transform: "perspective(2000px) rotateX(5deg) scale(0.85)", // Subtle tilt, slightly larger scale
+          transformOrigin: "center center",
+          filter: "drop-shadow(0 50px 100px rgba(0,0,0,0.5))",
           display: "flex",
-          alignItems: "flex-start",
+          alignItems: "center",
           justifyContent: "center",
-          marginTop: "0"
+          marginTop: "0",
+          position: "relative",
+          zIndex: 10
         }}
       >
         <DashboardMockup />

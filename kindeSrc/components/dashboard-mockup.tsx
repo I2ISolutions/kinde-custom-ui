@@ -2,14 +2,15 @@ import React from "react";
 
 const DashboardMockup: React.FC = () => {
   const cardStyle: React.CSSProperties = {
-    backgroundColor: "rgba(9, 11, 17, 0.99)",
-    borderRadius: "2px",
-    padding: "1.75rem",
+    backgroundColor: "rgba(13, 15, 23, 0.95)", // Slightly lighter/translucent
+    borderRadius: "4px",
+    padding: "1.5rem",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    border: "1px solid rgba(255, 255, 255, 0.08)",
-    boxShadow: "0 40px 100px rgba(0,0,0,0.8)",
+    border: "1px solid rgba(255, 255, 255, 0.1)",
+    boxShadow: "0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1)", // Inner highlight
+    backdropFilter: "blur(10px)",
   };
 
   const labelStyle: React.CSSProperties = {
@@ -37,11 +38,13 @@ const DashboardMockup: React.FC = () => {
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(12, 1fr)",
-        gap: "1px",
-        padding: "1px",
+        gap: "2px", // Slightly increased gap for definition
+        padding: "2px",
         width: "100%",
-        backgroundColor: "rgba(255, 255, 255, 0.12)",
-        border: "1px solid rgba(255, 255, 255, 0.15)",
+        backgroundColor: "rgba(255, 255, 255, 0.08)",
+        border: "1px solid rgba(255, 255, 255, 0.12)",
+        borderRadius: "6px", // Added outer radius
+        boxShadow: "0 0 0 1px rgba(0,0,0,0.5), 0 50px 100px -20px rgba(0,0,0,0.7)", // Deep shadow
       }}
     >
       {/* Row 1: High-Level Portfolio Telemetry */}
