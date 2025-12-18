@@ -11,7 +11,7 @@ import {
   type KindePageEvent,
 } from "@kinde/infrastructure";
 
-import { DefaultLayout } from "kindeSrc/layouts/default";
+import { DefaultLayout } from "../../layouts/default";
 
 export const Layout = async ({
   request,

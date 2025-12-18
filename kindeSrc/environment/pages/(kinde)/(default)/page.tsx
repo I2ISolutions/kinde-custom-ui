@@ -4,7 +4,7 @@ import { renderToString } from "react-dom/server.browser";
 import {
   type KindePageEvent,
 } from "@kinde/infrastructure";
-import { Widget } from "kindeSrc/components/widget";
+import { Widget } from "../../../../components/widget";
 import { Layout } from "../../layout";
 
 export default async function Page(event: KindePageEvent) {
