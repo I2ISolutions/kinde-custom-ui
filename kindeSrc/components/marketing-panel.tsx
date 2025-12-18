@@ -1,6 +1,24 @@
 import React from "react";
 
 const MarketingPanel: React.FC = () => {
+  const steps = [
+    {
+      number: "01",
+      title: "Unified Identity",
+      description: "Single sign-on across your entire enterprise ecosystem."
+    },
+    {
+      number: "02",
+      title: "Adaptive Security",
+      description: "AI-driven threat detection and zero-trust architecture."
+    },
+    {
+      number: "03",
+      title: "Global Scale",
+      description: "Multi-tenant infrastructure that grows with your business."
+    }
+  ];
+
   return (
     <div
       style={{
@@ -115,24 +133,72 @@ const MarketingPanel: React.FC = () => {
           Zopkit consolidates your entire enterprise stack—Revenue, HR, Finance, and Operations—into a single, intelligent source of truth.
         </p>
 
-        {/* Abstract Visual Element instead of dashboard */}
+        {/* Workflow Stepper */}
         <div style={{
             marginTop: "4rem",
             width: "100%",
-            height: "2px",
-            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
+            display: "flex",
+            justifyContent: "center",
+            gap: "2rem",
             position: "relative"
         }}>
+            {/* Connecting Line */}
             <div style={{
                 position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: "200px",
-                height: "100px",
-                background: "radial-gradient(ellipse at center, rgba(99, 102, 241, 0.3) 0%, transparent 70%)",
-                filter: "blur(20px)",
+                top: "24px",
+                left: "10%",
+                right: "10%",
+                height: "2px",
+                background: "linear-gradient(90deg, rgba(99, 102, 241, 0), rgba(99, 102, 241, 0.3) 20%, rgba(99, 102, 241, 0.3) 80%, rgba(99, 102, 241, 0))",
+                zIndex: 0
             }} />
+
+            {steps.map((step, index) => (
+                <div key={index} style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    position: "relative",
+                    zIndex: 1,
+                    flex: 1,
+                    maxWidth: "200px"
+                }}>
+                    <div style={{
+                        width: "48px",
+                        height: "48px",
+                        borderRadius: "50%",
+                        background: "#0f172a",
+                        border: "2px solid rgba(99, 102, 241, 0.3)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "#6366f1",
+                        fontSize: "0.875rem",
+                        fontWeight: 700,
+                        marginBottom: "1.5rem",
+                        boxShadow: "0 0 20px rgba(99, 102, 241, 0.1)"
+                    }}>
+                        {step.number}
+                    </div>
+                    <h3 style={{
+                        fontSize: "1rem",
+                        fontWeight: 600,
+                        color: "white",
+                        marginBottom: "0.5rem",
+                        fontFamily: '"Inter", sans-serif',
+                    }}>
+                        {step.title}
+                    </h3>
+                    <p style={{
+                        fontSize: "0.875rem",
+                        color: "#64748b",
+                        lineHeight: "1.5",
+                        margin: 0,
+                    }}>
+                        {step.description}
+                    </p>
+                </div>
+            ))}
         </div>
       </div>
     </div>
