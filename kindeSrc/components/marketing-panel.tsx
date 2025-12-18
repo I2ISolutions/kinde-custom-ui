@@ -11,7 +11,7 @@ const MarketingPanel: React.FC = () => {
         alignItems: "center",
         justifyContent: "center",
         height: "100%",
-        padding: "4rem",
+        padding: "6rem 4rem 4rem 4rem", // Increased top padding to avoid cutoff
         overflow: "hidden",
         position: "relative",
         background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)", // Clean, deep gradient

@@ -25,12 +25,12 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
     (typeof widgetContent === "object" && !React.isValidElement(widgetContent));
 
   const modules = [
-    { name: "REVENUE_CRM", detail: "Modern CRM for B2B Sales Teams" },
-    { name: "HCM_CORE", detail: "Complete HRMS & Workforce Insights" },
+    { name: "REVENUE CRM", detail: "Modern CRM for B2B Sales Teams" },
+    { name: "HCM CORE", detail: "Complete HRMS & Workforce Insights" },
     { name: "FINANCIALS", detail: "Multi-Entity Accounting & Treasury" },
-    { name: "OPS_CONTROL", detail: "Inventory, Procurement & Fulfillment" },
-    { name: "PROJECT_HUB", detail: "Enterprise Project & Resource Planning" },
-    { name: "AFFILIATE_CONNECT", detail: "Affiliate & Influencer Marketing Suite" },
+    { name: "OPS CONTROL", detail: "Inventory, Procurement & Fulfillment" },
+    { name: "PROJECT HUB", detail: "Enterprise Project & Resource Planning" },
+    { name: "AFFILIATE CONNECT", detail: "Affiliate & Influencer Marketing Suite" },
   ];
 
   return (

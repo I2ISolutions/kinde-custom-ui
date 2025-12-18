@@ -18,19 +18,20 @@ const DashboardMockup: React.FC = () => {
     fontWeight: 900,
     color: "#475569",
     textTransform: "uppercase",
-    letterSpacing: "0.25em", // Reduced from 0.35em
+    letterSpacing: "0.15em", // More breathable
     marginBottom: "0.75rem",
     whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
+    fontFamily: '"Inter", sans-serif', // Cleaner font
   };
 
   const valueStyle: React.CSSProperties = {
-    fontSize: "1.5rem", // Reduced from 1.75rem
+    fontSize: "1.5rem",
     fontWeight: 800,
     color: "#ffffff",
-    letterSpacing: "0.02em",
-    fontFamily: '"JetBrains Mono", monospace',
+    letterSpacing: "-0.02em", // Tighter for modern look
+    fontFamily: '"Inter", sans-serif', // Enterprise grade font
   };
 
   return (
@@ -50,7 +51,7 @@ const DashboardMockup: React.FC = () => {
       {/* Row 1: High-Level Portfolio Telemetry */}
       <div style={{ ...cardStyle, gridColumn: "span 4", padding: "1.25rem" }}>
         <div>
-          <p style={labelStyle}>FISCAL_LIQUIDITY</p>
+          <p style={labelStyle}>FISCAL LIQUIDITY</p>
           <h3 style={valueStyle}>$128.4M</h3>
           <div
             style={{
@@ -58,13 +59,13 @@ const DashboardMockup: React.FC = () => {
               fontSize: "0.55rem",
               fontWeight: 900,
               color: "#10B981",
-              fontFamily: '"JetBrains Mono"',
-              letterSpacing: "0.1em",
+              fontFamily: '"Inter", sans-serif',
+              letterSpacing: "0.05em",
             }}
           >
             +22.4%{" "}
             <span style={{ color: "#475569", fontWeight: 600 }}>
-              CASH_ACCOUNTING
+              CASH ACCOUNTING
             </span>
           </div>
         </div>
@@ -72,7 +73,7 @@ const DashboardMockup: React.FC = () => {
 
       <div style={{ ...cardStyle, gridColumn: "span 4", padding: "1.25rem" }}>
         <div>
-          <p style={labelStyle}>PROJECT_PRECISION</p>
+          <p style={labelStyle}>PROJECT PRECISION</p>
           <h3 style={valueStyle}>98.2%</h3>
           <div
             style={{
@@ -100,7 +101,7 @@ const DashboardMockup: React.FC = () => {
 
       <div style={{ ...cardStyle, gridColumn: "span 4", padding: "1.25rem" }}>
         <div>
-          <p style={labelStyle}>HCM_RETENTION</p>
+          <p style={labelStyle}>HCM RETENTION</p>
           <h3 style={valueStyle}>94.1%</h3>
           <div
             style={{
@@ -108,12 +109,12 @@ const DashboardMockup: React.FC = () => {
               fontSize: "0.55rem",
               fontWeight: 900,
               color: "#ffffff",
-              letterSpacing: "0.15em",
+              letterSpacing: "0.05em",
             }}
           >
             STABLE{" "}
             <span style={{ color: "#475569", fontWeight: 600 }}>
-              [Q3_ACTIVE]
+              [Q3 ACTIVE]
             </span>
           </div>
         </div>
@@ -135,13 +136,13 @@ const DashboardMockup: React.FC = () => {
                 fontSize: "1.1rem",
                 fontWeight: 800,
                 color: "#ffffff",
-                letterSpacing: "0.05em",
+                letterSpacing: "0.02em",
                 lineHeight: 1,
                 margin: 0,
                 fontFamily: '"Inter", sans-serif',
               }}
             >
-              TENANT_CORE_OPERATIONS
+              TENANT CORE OPERATIONS
             </h4>
             <p
               style={{
@@ -151,7 +152,7 @@ const DashboardMockup: React.FC = () => {
                 marginTop: "0.5rem",
                 marginBottom: 0,
                 textTransform: "uppercase",
-                letterSpacing: "0.25em",
+                letterSpacing: "0.15em",
               }}
             >
               Live Multi-Tenant Execution Stream
@@ -164,10 +165,10 @@ const DashboardMockup: React.FC = () => {
               fontSize: "0.5rem",
               fontWeight: 900,
               color: "#ffffff",
-              letterSpacing: "0.4em",
+              letterSpacing: "0.2em",
             }}
           >
-            SYSTEM_SYNC: NOMINAL
+            SYSTEM SYNC: NOMINAL
           </div>
         </div>
 
@@ -175,14 +176,14 @@ const DashboardMockup: React.FC = () => {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "2rem", // Reduced gap significantly to fit
+            gap: "2rem",
           }}
         >
           {[
-            { label: "CRM_VELOCITY", val: "12.4X", pct: "84%", color: "#4F46E5" },
-            { label: "OPS_EFFICIENCY", val: "99.8", pct: "99%", color: "#10B981" },
-            { label: "FIN_SOLVENCY", val: "1.82", pct: "72%", color: "#ffffff" },
-            { label: "DELIVERY_RATE", val: "OPTIMAL", pct: "100%", color: "#4F46E5" },
+            { label: "CRM VELOCITY", val: "12.4X", pct: "84%", color: "#4F46E5" },
+            { label: "OPS EFFICIENCY", val: "99.8", pct: "99%", color: "#10B981" },
+            { label: "FIN SOLVENCY", val: "1.82", pct: "72%", color: "#ffffff" },
+            { label: "DELIVERY RATE", val: "OPTIMAL", pct: "100%", color: "#4F46E5" },
           ].map((item, i) => (
             <div key={i}>
               <p style={{ ...labelStyle, marginBottom: "1.25rem" }}>

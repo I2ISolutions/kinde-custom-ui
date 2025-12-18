@@ -24,7 +24,7 @@ export const MockKindeWidget: React.FC = () => {
           textTransform: "uppercase",
         }}
       >
-        ACCESS COMMAND CENTER
+        ACCESS DASHBOARD
       </button>
 
       <div
@@ -44,7 +44,7 @@ export const MockKindeWidget: React.FC = () => {
             letterSpacing: "0.5em",
           }}
         >
-          MULTI_TENANT_SECURE_AUTH
+          MULTI TENANT SECURE AUTH
         </span>
         <div style={{ flex: 1, height: "1px", backgroundColor: "#f1f5f9" }} />
       </div>
