@@ -1,7 +1,6 @@
 import React from "react";
 import { getKindeWidget, getLogoUrl } from "@kinde/infrastructure";
 import { Logo } from "./logo";
-import { MockKindeWidget } from "./mock-widget";
 
 interface WidgetProps {
   heading: string;
@@ -16,13 +15,8 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
       ? kindeLogoUrl
       : "https://res.cloudinary.com/dr9vzaa7u/image/upload/v1765126845/Zopkit_Simple_Logo_glohfr.jpg";
 
-  // Kinde widget content in real runtime; mock in local/dev.
+  // Always use production Kinde widget
   const widgetContent = getKindeWidget();
-  const isLocalDev =
-    typeof widgetContent === "string" ||
-    widgetContent === null ||
-    widgetContent === undefined ||
-    (typeof widgetContent === "object" && !React.isValidElement(widgetContent));
 
   const modules = [
     { name: "REVENUE CRM", detail: "Modern CRM for Sales Teams" },
@@ -128,8 +122,8 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         </div>
       </div>
 
-      <div style={{ width: "100%", maxWidth: "100%" }}> {/* Full width container for button */}
-        {isLocalDev ? <MockKindeWidget /> : widgetContent}
+      <div style={{ width: "100%", maxWidth: "100%" }}>
+        {widgetContent}
       </div>
     </div>
   );
