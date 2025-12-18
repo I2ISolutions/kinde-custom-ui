@@ -25,11 +25,11 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
     (typeof widgetContent === "object" && !React.isValidElement(widgetContent));
 
   const modules = [
-    { name: "REVENUE CRM", detail: "Modern CRM for B2B Sales Teams" },
-    { name: "HCM CORE", detail: "Complete HRMS & Workforce Insights" },
-    { name: "FINANCIALS", detail: "Multi-Entity Accounting & Treasury" },
-    { name: "OPS CONTROL", detail: "Inventory, Procurement & Fulfillment" },
-    { name: "PROJECT HUB", detail: "Enterprise Project & Resource Planning" },
+    { name: "REVENUE CRM", detail: "Modern CRM for Sales Teams" },
+    { name: "HRMS", detail: "Complete HR & Workforce Management" },
+    { name: "FINANCIAL ACCOUNTING", detail: "Multi-Entity Accounting & Treasury" },
+    { name: "OPERATIONS MANAGEMENT", detail: "Inventory, Procurement & Supply Chain" },
+    { name: "PROJECT MANAGEMENT", detail: "Enterprise Project & Resource Planning" },
     { name: "AFFILIATE CONNECT", detail: "Affiliate & Influencer Marketing Suite" },
   ];
 
@@ -77,7 +77,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
           }}
         >
           {description ||
-            "Sign in to access your unified business operations suite across CRM, HRMS, Finance, Operations, Projects, and Affiliate Connect."}
+            "Sign in to access your unified business operations platform. Manage CRM, HRMS, Finance, Operations, Projects, and Affiliate Marketing—all integrated in one secure, multi-tenant system."}
         </p>
 
         {/* Enterprise Module Portfolio */}
