@@ -249,6 +249,50 @@ export const Layout = async ({
             a:hover {
               color: rgb(15 23 42) !important;
             }
+            
+            /* Ensure proper box sizing */
+            *, *::before, *::after {
+              box-sizing: border-box;
+            }
+            
+            /* Body and root styling */
+            body {
+              font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+            }
+            
+            /* Container styling */
+            .kinde-layout-wrapper {
+              position: relative;
+              width: 100vw;
+              min-height: 100vh;
+            }
+            
+            .kinde-layout-container {
+              position: relative;
+            }
+            
+            /* Ensure images load properly */
+            img {
+              max-width: 100%;
+              height: auto;
+            }
+            
+            /* Button and input reset */
+            button, input {
+              font-family: inherit;
+            }
+            
+            /* Focus styles */
+            *:focus {
+              outline: none;
+            }
+            
+            *:focus-visible {
+              outline: 2px solid rgb(59 130 246);
+              outline-offset: 2px;
+            }
           `
         }} />
       </head>
