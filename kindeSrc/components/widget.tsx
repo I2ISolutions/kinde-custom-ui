@@ -18,19 +18,33 @@ export const Widget = (props: { heading: string; description: string }) => {
                      (typeof widgetContent === 'object' && !React.isValidElement(widgetContent));
 
   return (
-    <main style={{ width: '100%', maxWidth: '400px', margin: '0 auto', padding: '0' }}>
-      <div style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'flex-start', width: '100%' }}>
+    <main style={{ 
+      width: '100%', 
+      maxWidth: '400px', 
+      margin: '0 auto', 
+      padding: '0',
+      opacity: 0,
+      animation: 'fadeIn 0.8s ease-out forwards'
+    }}>
+      <div style={{ 
+        marginBottom: '3rem', 
+        display: 'flex', 
+        justifyContent: 'flex-start', 
+        width: '100%',
+        transform: 'translateY(0)',
+        transition: 'transform 0.3s ease'
+      }}>
         <Logo src={logoUrl} />
       </div>
 
       <div style={{ marginBottom: '2.5rem', textAlign: 'left' }}>
         <h1 style={{ 
-          fontSize: '32px', 
-          fontWeight: 700, 
+          fontSize: '36px', 
+          fontWeight: 800, 
           color: 'rgb(15 23 42)', 
-          marginBottom: '0.75rem',
-          letterSpacing: '-0.025em',
-          lineHeight: '1.25'
+          marginBottom: '1rem',
+          letterSpacing: '-0.03em',
+          lineHeight: '1.2'
         }}>
           {props.heading}
         </h1>
@@ -38,7 +52,8 @@ export const Widget = (props: { heading: string; description: string }) => {
           color: 'rgb(100 116 139)', 
           fontWeight: 500, 
           fontSize: '1.125rem',
-          lineHeight: '1.625'
+          lineHeight: '1.6',
+          maxWidth: '320px'
         }}>
           {props.description}
         </p>
@@ -46,18 +61,18 @@ export const Widget = (props: { heading: string; description: string }) => {
 
       <div style={{ width: '100%' }}>
         {/* Kinde Widget Container */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           {isLocalDev ? <MockKindeWidget /> : widgetContent}
         </div>
       </div>
 
-      <div style={{ marginTop: '3rem', textAlign: 'left', fontSize: '0.875rem', color: 'rgb(148 163 184)' }}>
-        <div style={{ display: 'flex', justifyContent: 'flex-start', gap: '1.5rem', marginBottom: '1.5rem' }}>
-          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none', transition: 'color 0.2s' }}>Privacy</a>
-          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none', transition: 'color 0.2s' }}>Terms</a>
-          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none', transition: 'color 0.2s' }}>Help</a>
+      <div style={{ marginTop: '3.5rem', textAlign: 'left', fontSize: '0.875rem', color: 'rgb(148 163 184)' }}>
+        <div style={{ display: 'flex', justifyContent: 'flex-start', gap: '2rem', marginBottom: '1.5rem' }}>
+          <a href="#" style={{ fontWeight: 600, color: 'rgb(71 85 105)', textDecoration: 'none', transition: 'color 0.2s' }}>Privacy</a>
+          <a href="#" style={{ fontWeight: 600, color: 'rgb(71 85 105)', textDecoration: 'none', transition: 'color 0.2s' }}>Terms</a>
+          <a href="#" style={{ fontWeight: 600, color: 'rgb(71 85 105)', textDecoration: 'none', transition: 'color 0.2s' }}>Help</a>
         </div>
-        <p style={{ margin: 0 }}>
+        <p style={{ margin: 0, opacity: 0.8 }}>
           &copy; {new Date().getFullYear()} Zopkit Inc. All rights reserved.
         </p>
       </div>

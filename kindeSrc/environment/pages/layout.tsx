@@ -293,6 +293,84 @@ export const Layout = async ({
               outline: 2px solid rgb(59 130 246);
               outline-offset: 2px;
             }
+            
+            /* Keyframes for animations */
+            @keyframes fadeIn {
+              from { opacity: 0; transform: translateY(10px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+            
+            @keyframes slideInRight {
+              from { opacity: 0; transform: translateX(20px); }
+              to { opacity: 1; transform: translateX(0); }
+            }
+            
+            @keyframes float {
+              0% { transform: translateY(0px); }
+              50% { transform: translateY(-10px); }
+              100% { transform: translateY(0px); }
+            }
+            
+            @keyframes pulse-soft {
+              0%, 100% { opacity: 1; }
+              50% { opacity: 0.8; }
+            }
+
+            /* Animated elements */
+            .animate-fade-in {
+              animation: fadeIn 0.6s ease-out forwards;
+            }
+            
+            .animate-slide-in {
+              animation: slideInRight 0.8s ease-out forwards;
+            }
+            
+            .animate-float {
+              animation: float 6s ease-in-out infinite;
+            }
+
+            /* Button hover effects */
+            [data-kinde-button-primary] {
+              position: relative;
+              overflow: hidden;
+            }
+            
+            [data-kinde-button-primary]::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0));
+              opacity: 0;
+              transition: opacity 0.2s;
+            }
+            
+            [data-kinde-button-primary]:hover::after {
+              opacity: 1;
+            }
+            
+            /* Input focus ring animation */
+            [data-kinde-input] {
+              transition: border-color 0.2s, box-shadow 0.2s;
+            }
+            
+            [data-kinde-root] table th,
+            [data-kinde-root] table td {
+              padding: 0.5rem 0.75rem;
+            }
+            
+            /* Ensure grid layout works */
+            [data-kinde-root] [style*="grid-template-columns"] {
+              display: grid !important;
+            }
+            
+            /* SVG icons styling */
+            [data-kinde-root] svg {
+              display: inline-block;
+              vertical-align: middle;
+            }
           `
         }} />
       </head>
