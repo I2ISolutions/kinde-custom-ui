@@ -7,6 +7,13 @@ export const Widget = (props: { heading: string; description: string }) => {
   // Use provided logo or fallback to Kinde's
   const logoUrl = "https://res.cloudinary.com/dr9vzaa7u/image/upload/v1765126845/Zopkit_Simple_Logo_glohfr.jpg";
 
+  // Check if we're in local development (getKindeWidget returns a string ID or invalid content)
+  const widgetContent = getKindeWidget();
+  const isLocalDev = typeof widgetContent === 'string' || 
+                     widgetContent === null ||
+                     widgetContent === undefined ||
+                     (typeof widgetContent === 'object' && !React.isValidElement(widgetContent));
+
   return (
     <main className="w-full max-w-[400px] mx-auto px-6 lg:px-0">
       <div className="mb-12 flex justify-center lg:justify-start">
@@ -25,7 +32,7 @@ export const Widget = (props: { heading: string; description: string }) => {
       <div className="w-full">
         {/* Kinde Widget Container */}
         <div className="space-y-6">
-          {getKindeWidget()}
+          {isLocalDev ? <MockKindeWidget /> : widgetContent}
         </div>
       </div>
 

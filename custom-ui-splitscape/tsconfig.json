@@ -2,7 +2,11 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
     "moduleResolution": "node",
@@ -18,10 +22,21 @@
     "esModuleInterop": true,
     "allowJs": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "kindeSrc/*": ["./kindeSrc/*"]
-    }
+      "@/*": [
+        "./src/*"
+      ],
+      "kindeSrc/*": [
+        "./kindeSrc/*"
+      ]
+    },
+    "incremental": true
   },
-  "include": ["kindeSrc", "next.config.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "kindeSrc",
+    "pages",
+    "next.config.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
