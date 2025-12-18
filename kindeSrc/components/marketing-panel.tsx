@@ -88,7 +88,7 @@ const MarketingPanel: React.FC = () => {
           backgroundColor: "rgba(255,255,255,0.03)",
           border: "1px solid rgba(255,255,255,0.08)",
           backdropFilter: "blur(12px)",
-          marginBottom: "24px",
+          marginBottom: "32px",
           alignSelf: "flex-start",
           boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
         }}>
@@ -99,11 +99,11 @@ const MarketingPanel: React.FC = () => {
         </div>
 
         <h1 style={{
-          fontSize: "clamp(3.5rem, 6.5vw, 6rem)",
+          fontSize: "clamp(4.5rem, 8vw, 8rem)",
           fontWeight: 900,
           lineHeight: 0.9,
-          letterSpacing: "-0.05em",
-          marginBottom: "24px",
+          letterSpacing: "-0.06em",
+          marginBottom: "32px",
           color: "#ffffff"
         }}>
           <span style={{ color: "#ffffff", display: "block" }}>Unified core.</span>
@@ -111,24 +111,25 @@ const MarketingPanel: React.FC = () => {
             background: "linear-gradient(135deg, #a5b4fc 20%, #6366f1 80%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            display: "inline-block"
+            display: "inline-block",
+            paddingBottom: "10px" // Prevents text clipping for descenders
           }}>
             Limitless scale.
           </span>
         </h1>
 
         <p style={{
-          fontSize: "1.125rem",
+          fontSize: "1.25rem",
           color: "#94a3b8",
           lineHeight: 1.6,
-          maxWidth: "480px",
+          maxWidth: "540px",
           fontWeight: 500,
-          marginBottom: "40px"
+          marginBottom: "48px"
         }}>
           One infrastructure. Infinite possibilities. Orchestrate your global revenue, operations, and workforce from a single sovereign control plane.
         </p>
 
-        <div style={{ display: "flex", gap: "40px", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "48px", flexWrap: "wrap" }}>
           {WORKFLOW_STEPS.map((step, i) => (
             <div key={i} style={{ display: "flex", flexDirection: "column", gap: "8px", borderLeft: "2px solid rgba(99, 102, 241, 0.2)", paddingLeft: "20px" }}>
               <span style={{ color: "#6366f1", fontSize: "14px", fontWeight: 900, letterSpacing: "0.1em" }}>{step.number}</span>
@@ -145,7 +146,7 @@ const MarketingPanel: React.FC = () => {
         display: "flex", 
         justifyContent: "space-between", 
         alignItems: "center", 
-        paddingTop: "24px", 
+        paddingTop: "32px", 
         borderTop: "1px solid rgba(255,255,255,0.06)" 
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>

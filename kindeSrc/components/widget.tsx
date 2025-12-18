@@ -30,7 +30,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         display: "flex", 
         justifyContent: "space-between", 
         alignItems: "center", 
-        marginBottom: "24px",
+        marginBottom: "20px",
         padding: "0 4px" 
       }}>
         <div style={{ 
@@ -41,31 +41,17 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
           <Logo src={brandLogoUrl} />
         </div>
         
-        <div style={{
-          padding: "6px 14px",
-          borderRadius: "99px",
-          backgroundColor: "#f8fafc",
-          border: "1px solid #f1f5f9",
-          display: "flex",
-          alignItems: "center",
-          gap: "10px",
-          boxShadow: "0 1px 3px rgba(0,0,0,0.02)"
-        }}>
-          <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#10b981", boxShadow: "0 0 6px rgba(16, 185, 129, 0.4)" }} />
-          <span style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.15em" }}>
-            Instance: Prod-East
-          </span>
-        </div>
+        {/* Instance Prod-East removed as requested */}
       </div>
 
-      <div style={{ marginBottom: "24px" }}>
+      <div style={{ marginBottom: "20px" }}>
         <h1 style={{
           fontSize: "clamp(1.75rem, 3.5vh, 2.5rem)",
           fontWeight: 900,
           color: "#0f172a",
           letterSpacing: "-0.045em",
           lineHeight: 1.05,
-          marginBottom: "12px"
+          marginBottom: "10px"
         }}>
           {heading}
         </h1>
@@ -83,8 +69,8 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
       <div style={{ 
         display: "grid", 
         gridTemplateColumns: "repeat(2, 1fr)", 
-        gap: "14px", 
-        marginBottom: "24px"
+        gap: "12px", 
+        marginBottom: "20px"
       }}>
         {ENTERPRISE_MODULES.map((mod, i) => (
           <div 
@@ -138,7 +124,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         ))}
       </div>
 
-      <div style={{ position: "relative", marginBottom: "24px" }}>
+      <div style={{ position: "relative", marginBottom: "20px" }}>
         <div style={{ position: "absolute", top: "50%", left: 0, right: 0, height: "1px", backgroundColor: "#f1f5f9" }} />
         <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
           <span style={{ 
@@ -160,28 +146,28 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
       </div>
 
       <footer style={{ 
-        marginTop: "32px", 
+        marginTop: "24px", 
         display: "flex", 
         flexDirection: "row",
         justifyContent: "space-between", 
         alignItems: "center", 
-        paddingTop: "16px", 
+        paddingTop: "12px", 
         borderTop: "1px solid #f1f5f9" 
       }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-          <p style={{ fontSize: "10px", color: "#94a3b8", fontWeight: 700, margin: 0, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+          <p style={{ fontSize: "9px", color: "#94a3b8", fontWeight: 700, margin: 0, textTransform: "uppercase", letterSpacing: "0.05em" }}>
             &copy; 2025 Zopkit Global Technologies
           </p>
-          <span style={{ fontSize: "9px", color: "#cbd5e1", fontWeight: 600 }}>Enterprise Edition v4.2.1-stable</span>
+          <span style={{ fontSize: "8px", color: "#cbd5e1", fontWeight: 600 }}>Enterprise Edition v4.2.1-stable</span>
         </div>
-        <div style={{ display: "flex", gap: "16px" }}>
+        <div style={{ display: "flex", gap: "12px" }}>
           {['Compliance', 'Uptime', 'Terms'].map(link => (
             <a 
               key={link} 
               href="#" 
               style={{ 
                 textDecoration: "none", 
-                fontSize: "10px", 
+                fontSize: "9px", 
                 fontWeight: 800, 
                 color: "#64748b", 
                 textTransform: "uppercase", 
