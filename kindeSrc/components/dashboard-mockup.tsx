@@ -1,29 +1,8 @@
 import React from 'react';
-import { 
-  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
-  BarChart, Bar, PieChart, Pie, Cell 
-} from 'recharts';
-import { MoreHorizontal, ArrowUpRight, ArrowDownRight } from 'lucide-react';
-
-const data = [
-  { name: 'Mon', sales: 4000 },
-  { name: 'Tue', sales: 3000 },
-  { name: 'Wed', sales: 2000 },
-  { name: 'Thu', sales: 2780 },
-  { name: 'Fri', sales: 1890 },
-  { name: 'Sat', sales: 2390 },
-  { name: 'Sun', sales: 3490 },
-];
-
-const pieData = [
-  { name: 'Smartphones', value: 3849, color: '#4f46e5' },
-  { name: 'Laptops', value: 750, color: '#818cf8' },
-  { name: 'Accessories', value: 1649, color: '#c7d2fe' },
-];
 
 const DashboardMockup: React.FC = () => {
   return (
-    <div className="bg-white  rounded-2xl shadow-2xl p-5 w-full overflow-hidden border border-white/20 select-none pointer-events-none scale-[0.85] origin-center">
+    <div className="bg-white rounded-2xl shadow-2xl p-5 w-full overflow-hidden border border-white/20 select-none pointer-events-none scale-[0.85] origin-center">
       <div className="grid grid-cols-12 gap-4">
         
         {/* Top Widgets */}
@@ -34,12 +13,17 @@ const DashboardMockup: React.FC = () => {
               <h3 className="text-2xl font-bold text-slate-800">$189,374</h3>
             </div>
             <div className="p-1.5 bg-white rounded-lg shadow-sm border border-slate-100">
-              <MoreHorizontal size={14} className="text-slate-400" />
+              <svg className="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+              </svg>
             </div>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="flex items-center text-[10px] font-bold text-emerald-500 bg-emerald-50 px-2 py-0.5 rounded-full">
-              <ArrowUpRight size={10} className="mr-0.5" /> 7%
+              <svg className="w-2.5 h-2.5 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+              7%
             </span>
             <span className="text-[10px] font-medium text-slate-400">From last month</span>
           </div>
@@ -52,21 +36,19 @@ const DashboardMockup: React.FC = () => {
               <h3 className="text-2xl font-bold text-slate-800">00:01:30</h3>
             </div>
             <div className="p-1.5 bg-white rounded-lg shadow-sm border border-slate-100">
-              <MoreHorizontal size={14} className="text-slate-400" />
+              <svg className="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+              </svg>
             </div>
           </div>
-          <div className="h-12 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={data}>
-                <Area type="monotone" dataKey="sales" stroke="#3b82f6" fillOpacity={1} fill="url(#colorSales)" />
-                <defs>
-                  <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
-                  </linearGradient>
-                </defs>
-              </AreaChart>
-            </ResponsiveContainer>
+          <div className="h-12 w-full bg-gradient-to-t from-blue-100 to-blue-50 rounded flex items-end justify-between px-2 pb-1">
+            <div className="w-2 h-6 bg-blue-400 rounded-t"></div>
+            <div className="w-2 h-8 bg-blue-500 rounded-t"></div>
+            <div className="w-2 h-5 bg-blue-400 rounded-t"></div>
+            <div className="w-2 h-7 bg-blue-500 rounded-t"></div>
+            <div className="w-2 h-4 bg-blue-400 rounded-t"></div>
+            <div className="w-2 h-6 bg-blue-500 rounded-t"></div>
+            <div className="w-2 h-5 bg-blue-400 rounded-t"></div>
           </div>
         </div>
 
@@ -77,12 +59,17 @@ const DashboardMockup: React.FC = () => {
               <h3 className="text-2xl font-bold text-slate-800">$25,684</h3>
             </div>
             <div className="p-1.5 bg-white rounded-lg shadow-sm border border-slate-100">
-              <MoreHorizontal size={14} className="text-slate-400" />
+              <svg className="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+              </svg>
             </div>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="flex items-center text-[10px] font-bold text-emerald-500 bg-emerald-50 px-2 py-0.5 rounded-full">
-              <ArrowUpRight size={10} className="mr-0.5" /> 5%
+              <svg className="w-2.5 h-2.5 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+              5%
             </span>
             <span className="text-[10px] font-medium text-slate-400">From last month</span>
           </div>
@@ -94,13 +81,14 @@ const DashboardMockup: React.FC = () => {
             <h4 className="text-sm font-bold text-slate-800">Sales Overview</h4>
             <div className="text-[10px] px-2 py-1 bg-slate-50 rounded border border-slate-200 font-semibold text-slate-500">Weekly</div>
           </div>
-          <div className="h-32 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={data}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                <Bar dataKey="sales" fill="#3b82f6" radius={[4, 4, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
+          <div className="h-32 w-full flex items-end justify-between gap-1">
+            <div className="flex-1 bg-blue-500 rounded-t" style={{ height: '60%' }}></div>
+            <div className="flex-1 bg-blue-500 rounded-t" style={{ height: '45%' }}></div>
+            <div className="flex-1 bg-blue-500 rounded-t" style={{ height: '30%' }}></div>
+            <div className="flex-1 bg-blue-500 rounded-t" style={{ height: '55%' }}></div>
+            <div className="flex-1 bg-blue-500 rounded-t" style={{ height: '25%' }}></div>
+            <div className="flex-1 bg-blue-500 rounded-t" style={{ height: '40%' }}></div>
+            <div className="flex-1 bg-blue-500 rounded-t" style={{ height: '35%' }}></div>
           </div>
         </div>
 
@@ -109,38 +97,35 @@ const DashboardMockup: React.FC = () => {
             <h4 className="text-sm font-bold text-slate-800">Sales Categories</h4>
           </div>
           <div className="flex items-center justify-center">
-             <div className="h-32 w-full flex items-center justify-center">
-                <PieChart width={120} height={120}>
-                  <Pie
-                    data={pieData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={35}
-                    outerRadius={50}
-                    paddingAngle={5}
-                    dataKey="value"
-                  >
-                    {pieData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                </PieChart>
-                <div className="absolute inset-0 flex flex-col items-center justify-center mt-6">
-                  <span className="text-[8px] font-bold text-slate-400">Total Sales</span>
-                  <span className="text-xs font-extrabold text-slate-800">6,248 Units</span>
-                </div>
-             </div>
+            <div className="h-32 w-32 rounded-full border-8 border-blue-500 border-t-indigo-500 border-r-purple-400 flex items-center justify-center relative">
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <span className="text-[8px] font-bold text-slate-400">Total Sales</span>
+                <span className="text-xs font-extrabold text-slate-800">6,248 Units</span>
+              </div>
+            </div>
           </div>
           <div className="space-y-1.5 mt-2">
-            {pieData.map((item, idx) => (
-              <div key={idx} className="flex items-center justify-between text-[8px] font-bold">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: item.color }}></div>
-                  <span className="text-slate-500">{item.name}</span>
-                </div>
-                <span className="text-slate-700">{item.value.toLocaleString()} Unit</span>
+            <div className="flex items-center justify-between text-[8px] font-bold">
+              <div className="flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                <span className="text-slate-500">Smartphones</span>
               </div>
-            ))}
+              <span className="text-slate-700">3,849 Unit</span>
+            </div>
+            <div className="flex items-center justify-between text-[8px] font-bold">
+              <div className="flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 rounded-full bg-purple-400"></div>
+                <span className="text-slate-500">Laptops</span>
+              </div>
+              <span className="text-slate-700">750 Unit</span>
+            </div>
+            <div className="flex items-center justify-between text-[8px] font-bold">
+              <div className="flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-300"></div>
+                <span className="text-slate-500">Accessories</span>
+              </div>
+              <span className="text-slate-700">1,649 Unit</span>
+            </div>
           </div>
         </div>
 
