@@ -40,8 +40,6 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         }}>
           <Logo src={brandLogoUrl} />
         </div>
-        
-        {/* Instance Prod-East removed as requested */}
       </div>
 
       <div style={{ marginBottom: "20px" }}>
