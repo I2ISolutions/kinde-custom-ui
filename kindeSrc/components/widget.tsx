@@ -22,7 +22,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      padding: "clamp(2rem, 4vh, 4rem) 2rem",
+      padding: "clamp(1.5rem, 3vh, 3rem) 2rem",
       fontFamily: "'Inter', sans-serif"
     }}>
       {/* Primary Logo Placement Area */}
@@ -30,7 +30,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         display: "flex", 
         justifyContent: "space-between", 
         alignItems: "center", 
-        marginBottom: "32px",
+        marginBottom: "24px",
         padding: "0 4px" 
       }}>
         <div style={{ 
@@ -58,21 +58,21 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         </div>
       </div>
 
-      <div style={{ marginBottom: "32px" }}>
+      <div style={{ marginBottom: "24px" }}>
         <h1 style={{
-          fontSize: "clamp(2rem, 4vh, 2.75rem)",
+          fontSize: "clamp(1.75rem, 3.5vh, 2.5rem)",
           fontWeight: 900,
           color: "#0f172a",
           letterSpacing: "-0.045em",
           lineHeight: 1.05,
-          marginBottom: "16px"
+          marginBottom: "12px"
         }}>
           {heading}
         </h1>
         <p style={{
-          fontSize: "1rem",
+          fontSize: "0.95rem",
           color: "#64748b",
-          lineHeight: 1.6,
+          lineHeight: 1.5,
           fontWeight: 500,
           maxWidth: "520px"
         }}>
@@ -83,8 +83,8 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
       <div style={{ 
         display: "grid", 
         gridTemplateColumns: "repeat(2, 1fr)", 
-        gap: "16px", 
-        marginBottom: "32px"
+        gap: "14px", 
+        marginBottom: "24px"
       }}>
         {ENTERPRISE_MODULES.map((mod, i) => (
           <div 
@@ -92,8 +92,8 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
             style={{ 
               display: "flex", 
               flexDirection: "column", 
-              gap: "8px",
-              padding: "20px",
+              gap: "6px",
+              padding: "16px",
               backgroundColor: "#fff",
               borderRadius: "16px",
               border: "1px solid #f1f5f9",
@@ -112,39 +112,39 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
               e.currentTarget.style.transform = "translateY(0)";
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <div style={{ 
-                width: "28px", 
-                height: "28px", 
+                width: "24px", 
+                height: "24px", 
                 backgroundColor: "#f8fafc", 
-                borderRadius: "8px", 
+                borderRadius: "6px", 
                 display: "flex", 
                 alignItems: "center", 
                 justifyContent: "center",
                 border: "1px solid #f1f5f9"
               }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="2.5">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="2.5">
                   <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
                 </svg>
               </div>
-              <span style={{ fontSize: "11px", fontWeight: 900, color: "#4f46e5", letterSpacing: "0.15em", textTransform: "uppercase" }}>
+              <span style={{ fontSize: "10px", fontWeight: 900, color: "#4f46e5", letterSpacing: "0.15em", textTransform: "uppercase" }}>
                 {mod.name}
               </span>
             </div>
-            <span style={{ fontSize: "13px", fontWeight: 600, color: "#334155", marginTop: "4px", lineHeight: "1.4" }}>
+            <span style={{ fontSize: "12px", fontWeight: 600, color: "#334155", marginTop: "2px", lineHeight: "1.3" }}>
               {mod.detail}
             </span>
           </div>
         ))}
       </div>
 
-      <div style={{ position: "relative", marginBottom: "32px" }}>
+      <div style={{ position: "relative", marginBottom: "24px" }}>
         <div style={{ position: "absolute", top: "50%", left: 0, right: 0, height: "1px", backgroundColor: "#f1f5f9" }} />
         <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
           <span style={{ 
             backgroundColor: "#fff", 
             padding: "0 24px", 
-            fontSize: "11px", 
+            fontSize: "10px", 
             fontWeight: 800, 
             color: "#94a3b8", 
             textTransform: "uppercase", 
@@ -160,28 +160,28 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
       </div>
 
       <footer style={{ 
-        marginTop: "48px", 
+        marginTop: "32px", 
         display: "flex", 
         flexDirection: "row",
         justifyContent: "space-between", 
         alignItems: "center", 
-        paddingTop: "24px", 
+        paddingTop: "16px", 
         borderTop: "1px solid #f1f5f9" 
       }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-          <p style={{ fontSize: "11px", color: "#94a3b8", fontWeight: 700, margin: 0, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+          <p style={{ fontSize: "10px", color: "#94a3b8", fontWeight: 700, margin: 0, textTransform: "uppercase", letterSpacing: "0.05em" }}>
             &copy; 2025 Zopkit Global Technologies
           </p>
           <span style={{ fontSize: "9px", color: "#cbd5e1", fontWeight: 600 }}>Enterprise Edition v4.2.1-stable</span>
         </div>
-        <div style={{ display: "flex", gap: "24px" }}>
+        <div style={{ display: "flex", gap: "16px" }}>
           {['Compliance', 'Uptime', 'Terms'].map(link => (
             <a 
               key={link} 
               href="#" 
               style={{ 
                 textDecoration: "none", 
-                fontSize: "11px", 
+                fontSize: "10px", 
                 fontWeight: 800, 
                 color: "#64748b", 
                 textTransform: "uppercase", 

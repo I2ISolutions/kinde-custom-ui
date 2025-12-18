@@ -24,7 +24,7 @@ const MarketingPanel: React.FC = () => {
     background: "#020617",
     display: "flex",
     flexDirection: "column",
-    padding: "clamp(2rem, 4vw, 4rem)",
+    padding: "clamp(2rem, 4vw, 3rem)",
     overflow: "hidden",
     color: "#fff",
     fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
@@ -88,7 +88,7 @@ const MarketingPanel: React.FC = () => {
           backgroundColor: "rgba(255,255,255,0.03)",
           border: "1px solid rgba(255,255,255,0.08)",
           backdropFilter: "blur(12px)",
-          marginBottom: "32px",
+          marginBottom: "24px",
           alignSelf: "flex-start",
           boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
         }}>
@@ -99,16 +99,16 @@ const MarketingPanel: React.FC = () => {
         </div>
 
         <h1 style={{
-          fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+          fontSize: "clamp(3.5rem, 6.5vw, 6rem)",
           fontWeight: 900,
           lineHeight: 0.9,
           letterSpacing: "-0.05em",
           marginBottom: "24px",
-          color: "#fff"
+          color: "#ffffff"
         }}>
-          Unified core. <br />
+          <span style={{ color: "#ffffff", display: "block" }}>Unified core.</span>
           <span style={{
-            background: "linear-gradient(135deg, #fff 20%, #6366f1 80%)",
+            background: "linear-gradient(135deg, #a5b4fc 20%, #6366f1 80%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             display: "inline-block"
@@ -123,12 +123,12 @@ const MarketingPanel: React.FC = () => {
           lineHeight: 1.6,
           maxWidth: "480px",
           fontWeight: 500,
-          marginBottom: "48px"
+          marginBottom: "40px"
         }}>
           One infrastructure. Infinite possibilities. Orchestrate your global revenue, operations, and workforce from a single sovereign control plane.
         </p>
 
-        <div style={{ display: "flex", gap: "48px", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "40px", flexWrap: "wrap" }}>
           {WORKFLOW_STEPS.map((step, i) => (
             <div key={i} style={{ display: "flex", flexDirection: "column", gap: "8px", borderLeft: "2px solid rgba(99, 102, 241, 0.2)", paddingLeft: "20px" }}>
               <span style={{ color: "#6366f1", fontSize: "14px", fontWeight: 900, letterSpacing: "0.1em" }}>{step.number}</span>
@@ -145,7 +145,7 @@ const MarketingPanel: React.FC = () => {
         display: "flex", 
         justifyContent: "space-between", 
         alignItems: "center", 
-        paddingTop: "32px", 
+        paddingTop: "24px", 
         borderTop: "1px solid rgba(255,255,255,0.06)" 
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -160,13 +160,13 @@ const MarketingPanel: React.FC = () => {
             Zopkit Systems
           </span>
         </div>
-        <div style={{ display: "flex", gap: "24px" }}>
+        <div style={{ display: "flex", gap: "20px" }}>
           {['SOC-II Type 2', 'ISO 27001', 'End-to-End Encrypted'].map(tag => (
             <div key={tag} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="3">
                 <path d="M20 6L9 17L4 12" />
               </svg>
-              <span style={{ fontSize: "11px", fontWeight: 800, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.05em" }}>{tag}</span>
+              <span style={{ fontSize: "10px", fontWeight: 800, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.05em" }}>{tag}</span>
             </div>
           ))}
         </div>
