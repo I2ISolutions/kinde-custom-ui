@@ -13,20 +13,22 @@ const DashboardMockup: React.FC = () => {
   };
 
   const labelStyle: React.CSSProperties = {
-    fontSize: "0.45rem", // Slightly smaller to prevent break
+    fontSize: "0.45rem",
     fontWeight: 900,
     color: "#475569",
     textTransform: "uppercase",
-    letterSpacing: "0.35em", // Reduced spacing to fit
-    marginBottom: "1rem",
-    whiteSpace: "nowrap", // Prevent breaking
+    letterSpacing: "0.25em", // Reduced from 0.35em
+    marginBottom: "0.75rem",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   };
 
   const valueStyle: React.CSSProperties = {
-    fontSize: "1.75rem", // Slightly smaller
+    fontSize: "1.5rem", // Reduced from 1.75rem
     fontWeight: 800,
     color: "#ffffff",
-    letterSpacing: "0.05em",
+    letterSpacing: "0.02em",
     fontFamily: '"JetBrains Mono", monospace',
   };
 
@@ -43,14 +45,14 @@ const DashboardMockup: React.FC = () => {
       }}
     >
       {/* Row 1: High-Level Portfolio Telemetry */}
-      <div style={{ ...cardStyle, gridColumn: "span 4" }}>
+      <div style={{ ...cardStyle, gridColumn: "span 4", padding: "1.25rem" }}>
         <div>
           <p style={labelStyle}>FISCAL_LIQUIDITY</p>
           <h3 style={valueStyle}>$128.4M</h3>
           <div
             style={{
-              marginTop: "1rem",
-              fontSize: "0.6rem",
+              marginTop: "0.75rem",
+              fontSize: "0.55rem",
               fontWeight: 900,
               color: "#10B981",
               fontFamily: '"JetBrains Mono"',
@@ -65,17 +67,17 @@ const DashboardMockup: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ ...cardStyle, gridColumn: "span 4" }}>
+      <div style={{ ...cardStyle, gridColumn: "span 4", padding: "1.25rem" }}>
         <div>
           <p style={labelStyle}>PROJECT_PRECISION</p>
           <h3 style={valueStyle}>98.2%</h3>
           <div
             style={{
-              height: "28px",
+              height: "24px",
               display: "flex",
               alignItems: "flex-end",
-              gap: "3px",
-              marginTop: "1rem",
+              gap: "2px",
+              marginTop: "0.75rem",
             }}
           >
             {[30, 80, 50, 95, 70, 85, 40, 100, 60, 110].map((h, i) => (
@@ -84,8 +86,8 @@ const DashboardMockup: React.FC = () => {
                 style={{
                   flex: 1,
                   height: `${h}%`,
-                  backgroundColor: "#4F46E5",
-                  opacity: 0.25 + i * 0.075,
+                  backgroundColor: "#6366f1",
+                  opacity: 0.3 + i * 0.07,
                 }}
               />
             ))}
@@ -93,14 +95,14 @@ const DashboardMockup: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ ...cardStyle, gridColumn: "span 4" }}>
+      <div style={{ ...cardStyle, gridColumn: "span 4", padding: "1.25rem" }}>
         <div>
           <p style={labelStyle}>HCM_RETENTION</p>
           <h3 style={valueStyle}>94.1%</h3>
           <div
             style={{
-              marginTop: "1rem",
-              fontSize: "0.6rem",
+              marginTop: "0.75rem",
+              fontSize: "0.55rem",
               fontWeight: 900,
               color: "#ffffff",
               letterSpacing: "0.15em",
@@ -115,37 +117,38 @@ const DashboardMockup: React.FC = () => {
       </div>
 
       {/* Row 2: Deep Core Operations */}
-      <div style={{ ...cardStyle, gridColumn: "span 12", padding: "3rem" }}>
+      <div style={{ ...cardStyle, gridColumn: "span 12", padding: "2rem" }}>
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-start",
-            marginBottom: "3.5rem",
+            marginBottom: "2.5rem",
           }}
         >
           <div>
             <h4
               style={{
-                fontSize: "1.35rem",
-                fontWeight: 900,
+                fontSize: "1.1rem",
+                fontWeight: 800,
                 color: "#ffffff",
                 letterSpacing: "0.05em",
                 lineHeight: 1,
                 margin: 0,
+                fontFamily: '"Inter", sans-serif',
               }}
             >
               TENANT_CORE_OPERATIONS
             </h4>
             <p
               style={{
-                fontSize: "0.7rem",
+                fontSize: "0.6rem",
                 color: "#64748b",
                 fontWeight: 600,
-                marginTop: "0.6rem",
+                marginTop: "0.5rem",
                 marginBottom: 0,
                 textTransform: "uppercase",
-                letterSpacing: "0.35em",
+                letterSpacing: "0.25em",
               }}
             >
               Live Multi-Tenant Execution Stream
@@ -154,11 +157,11 @@ const DashboardMockup: React.FC = () => {
           <div
             style={{
               border: "1px solid rgba(255,255,255,0.15)",
-              padding: "0.5rem 1.25rem",
-              fontSize: "0.55rem",
+              padding: "0.4rem 1rem",
+              fontSize: "0.5rem",
               fontWeight: 900,
               color: "#ffffff",
-              letterSpacing: "0.6em",
+              letterSpacing: "0.4em",
             }}
           >
             SYSTEM_SYNC: NOMINAL
@@ -169,7 +172,7 @@ const DashboardMockup: React.FC = () => {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "5rem",
+            gap: "2rem", // Reduced gap significantly to fit
           }}
         >
           {[

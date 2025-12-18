@@ -10,36 +10,38 @@ const MarketingPanel: React.FC = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "flex-start", // Changed from center to allow better top spacing
+        justifyContent: "center", // Centered vertically
         height: "100%",
-        padding: "4rem 2rem", // Added padding
-        overflow: "hidden", // Prevent scrollbars from tilt effect
+        padding: "2rem", // Reduced padding
+        overflow: "hidden",
       }}
     >
-      <div style={{ width: "100%", textAlign: "left", marginBottom: "3rem" }}>
+      <div style={{ width: "100%", textAlign: "left", marginBottom: "2rem" }}>
         <h2
           style={{
-            fontSize: "clamp(2.5rem, 5vw, 5rem)", // Reduced max size to prevent overflow
+            fontSize: "clamp(2.5rem, 4vw, 4rem)", // Reduced max size
             fontWeight: 900,
             color: "white",
             lineHeight: "0.9",
-            marginBottom: "2rem",
-            letterSpacing: "0.02em",
+            marginBottom: "1.5rem",
+            letterSpacing: "-0.02em", // Tighter tracking
+            fontFamily: '"Inter", sans-serif', // Explicit font
           }}
         >
           UNIFIED CORE.
           <br />
           ELASTIC SCALE.
         </h2>
-        <div style={{ display: "flex", gap: "4rem", alignItems: "flex-start", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "3rem", alignItems: "flex-start", flexWrap: "wrap" }}>
           <p
             style={{
-              fontSize: "1rem",
-              color: "rgba(255, 255, 255, 0.6)",
+              fontSize: "0.95rem",
+              color: "rgba(255, 255, 255, 0.7)",
               lineHeight: "1.6",
-              maxWidth: "480px",
-              fontWeight: 500,
+              maxWidth: "460px",
+              fontWeight: 400,
               letterSpacing: "0.01em",
+              fontFamily: '"Inter", sans-serif',
             }}
           >
             The definitive multi-tenant architecture for the modern enterprise.
@@ -50,14 +52,14 @@ const MarketingPanel: React.FC = () => {
               display: "flex",
               flexDirection: "column",
               gap: "0.5rem",
-              borderLeft: "1px solid rgba(255,255,255,0.12)",
+              borderLeft: "1px solid rgba(255,255,255,0.15)",
               paddingLeft: "1.5rem",
             }}
           >
-            <span style={{ fontSize: "0.5rem", fontWeight: 900, color: "#4F46E5", letterSpacing: "0.6em" }}>
+            <span style={{ fontSize: "0.5rem", fontWeight: 800, color: "#818cf8", letterSpacing: "0.2em", textTransform: "uppercase" }}>
               ARCHITECTURE
             </span>
-            <span style={{ fontSize: "0.875rem", fontWeight: 700, color: "#ffffff", letterSpacing: "0.05em" }}>
+            <span style={{ fontSize: "0.875rem", fontWeight: 700, color: "#ffffff", letterSpacing: "0.02em", fontFamily: '"JetBrains Mono", monospace' }}>
               Multi-Tenant Mesh v5.0
             </span>
           </div>
@@ -67,13 +69,13 @@ const MarketingPanel: React.FC = () => {
       <div
         style={{
           width: "100%",
-          transform: "perspective(2000px) rotateX(10deg) scale(0.9)", // Adjusted scale to fit better
+          transform: "perspective(2000px) rotateX(8deg) scale(0.8)", // Reduced scale and tilt
           transformOrigin: "top center",
           filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.6))",
           display: "flex",
           alignItems: "flex-start",
           justifyContent: "center",
-          marginTop: "1rem"
+          marginTop: "0"
         }}
       >
         <DashboardMockup />

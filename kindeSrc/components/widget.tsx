@@ -50,15 +50,16 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         <Logo src={logoUrl} />
       </div>
 
-      <div style={{ marginBottom: "4rem" }}>
+      <div style={{ marginBottom: "2.5rem" }}>
         <h1
           style={{
-            fontSize: "clamp(2.5rem, 6vh, 3.75rem)",
-            fontWeight: 900,
+            fontSize: "clamp(2rem, 5vh, 3rem)", // Slightly smaller
+            fontWeight: 800,
             color: "#0f172a",
-            marginBottom: "1.5rem",
-            letterSpacing: "0.04em",
-            lineHeight: "0.95",
+            marginBottom: "1rem",
+            letterSpacing: "-0.03em",
+            lineHeight: "1",
+            fontFamily: '"Inter", sans-serif',
           }}
         >
           {heading}
@@ -66,12 +67,13 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         <p
           style={{
             color: "#64748b",
-            fontSize: "0.9375rem",
-            lineHeight: "1.6",
-            fontWeight: 500,
-            marginBottom: "4.5rem",
-            letterSpacing: "0.02em",
-            maxWidth: "440px",
+            fontSize: "0.95rem",
+            lineHeight: "1.5",
+            fontWeight: 400,
+            marginBottom: "3rem",
+            letterSpacing: "0.01em",
+            maxWidth: "420px",
+            fontFamily: '"Inter", sans-serif',
           }}
         >
           {description ||
@@ -83,7 +85,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
-            gap: "3rem 2.5rem",
+            gap: "2rem 2rem", // Reduced gap
             marginBottom: "2rem",
           }}
         >
@@ -93,29 +95,30 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "0.65rem",
-                borderLeft: "1px solid #f1f5f9",
-                paddingLeft: "1.5rem",
+                gap: "0.4rem",
+                borderLeft: "2px solid #e2e8f0", // Thicker accent
+                paddingLeft: "1rem",
               }}
             >
               <span
                 style={{
-                  fontSize: "0.55rem",
+                  fontSize: "0.5rem",
                   fontWeight: 900,
-                  color: "#4F46E5",
-                  letterSpacing: "0.55em",
+                  color: "#6366f1", // Indigo-500
+                  letterSpacing: "0.15em",
                   textTransform: "uppercase",
+                  fontFamily: '"Inter", sans-serif',
                 }}
               >
-                {mod.name}
+                {mod.name.replace(/_/g, " ")}
               </span>
               <span
                 style={{
-                  fontSize: "0.8125rem",
+                  fontSize: "0.75rem",
                   fontWeight: 600,
                   color: "#334155",
                   lineHeight: "1.3",
-                  letterSpacing: "0.01em",
+                  fontFamily: '"Inter", sans-serif',
                 }}
               >
                 {mod.detail}
