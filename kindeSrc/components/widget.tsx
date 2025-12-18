@@ -10,8 +10,9 @@ interface WidgetProps {
 export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
   // Use Kinde's logo URL or fallback to Zopkit text logo.
   const kindeLogoUrl = getLogoUrl();
-  const logoUrl =
-    kindeLogoUrl && kindeLogoUrl !== "/logo" ? kindeLogoUrl : undefined;
+  // Force text logo fallback to ensure visibility if image is broken or missing
+  const logoUrl = undefined; 
+    // kindeLogoUrl && kindeLogoUrl !== "/logo" ? kindeLogoUrl : undefined;
 
   // Always use production Kinde widget
   const widgetContent = getKindeWidget();

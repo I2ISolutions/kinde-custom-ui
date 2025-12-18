@@ -5,17 +5,14 @@ const MarketingPanel: React.FC = () => {
     {
       number: "01",
       title: "Unified Login",
-      description: "One login to access multiple applications. No more multiple logins."
     },
     {
       number: "02",
-      title: "Unified Dashboard",
-      description: "Dashboard to manage your entire enterprise. No more multiple dashboards."
+      title: "Access Any Application",
     },
     {
       number: "03",
-      title: "Global Scale",
-      description: "Multi-tenant infrastructure that grows with your business."
+      title: "Use The Application",
     }
   ];
 
@@ -184,19 +181,11 @@ const MarketingPanel: React.FC = () => {
                         fontSize: "1rem",
                         fontWeight: 600,
                         color: "white",
-                        marginBottom: "0.5rem",
+                        marginBottom: "0",
                         fontFamily: '"Inter", sans-serif',
                     }}>
                         {step.title}
                     </h3>
-                    <p style={{
-                        fontSize: "0.875rem",
-                        color: "#64748b",
-                        lineHeight: "1.5",
-                        margin: 0,
-                    }}>
-                        {step.description}
-                    </p>
                 </div>
             ))}
         </div>
