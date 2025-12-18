@@ -3,15 +3,50 @@ import MarketingPanel from "../components/marketing-panel";
 
 export const DefaultLayout = (props: { children: React.ReactNode }) => {
   return (
-    <div className="flex min-h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-4 lg:p-6 overflow-hidden items-center justify-center">
-      <div className="flex w-full h-full min-h-[600px] max-h-[900px] aspect-[16/9] max-w-[1600px] mx-auto bg-white rounded-[2rem] shadow-2xl overflow-hidden ring-1 ring-slate-200/50">
+    <div style={{
+      display: 'flex',
+      minHeight: '100vh',
+      width: '100%',
+      background: 'linear-gradient(to bottom right, rgb(248 250 252), rgb(241 245 249))',
+      padding: '1rem',
+      overflow: 'hidden',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
+      <div style={{
+        display: 'flex',
+        width: '100%',
+        height: '100%',
+        minHeight: '600px',
+        maxHeight: '900px',
+        aspectRatio: '16/9',
+        maxWidth: '1600px',
+        margin: '0 auto',
+        backgroundColor: 'white',
+        borderRadius: '2rem',
+        boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)',
+        overflow: 'hidden',
+        border: '1px solid rgba(226, 232, 240, 0.5)'
+      }}>
         {/* Left side - Login Form */}
-        <div className="flex w-full flex-col justify-center bg-white lg:w-5/12 xl:w-4/12 p-8 lg:p-12 relative z-10 overflow-y-auto">
+        <div style={{
+          display: 'flex',
+          width: '100%',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          backgroundColor: 'white',
+          padding: '2rem',
+          position: 'relative',
+          zIndex: 10,
+          overflowY: 'auto'
+        }}>
           {props.children}
         </div>
 
         {/* Right side - Hero/Image */}
-        <div className="hidden lg:block lg:w-7/12 xl:w-8/12 h-full relative overflow-hidden bg-slate-900">
+        <div style={{
+          display: 'none' // Hidden on mobile, shown via media query in inline styles
+        }}>
           <MarketingPanel />
         </div>
       </div>

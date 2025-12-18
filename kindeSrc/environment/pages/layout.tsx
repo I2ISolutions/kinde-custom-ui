@@ -45,8 +45,126 @@ export const Layout = async ({
           `}
         </style>
 
-        {/* Tailwind + component overrides (compiled by Kinde) */}
-        <link rel="stylesheet" href="/kindeSrc/styles/globals.css" />
+        {/* Critical styles for Kinde widget and components */}
+        <style nonce={getKindeNonce()} dangerouslySetInnerHTML={{
+          __html: `
+            * {
+              font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            }
+            
+            /* Kinde widget styling */
+            [data-kinde-choice-separator] {
+              margin-top: 1.5rem;
+              margin-bottom: 1.5rem;
+              display: flex;
+              align-items: center;
+              font-size: 0.75rem;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+              color: rgb(100 116 139);
+            }
+            [data-kinde-choice-separator]::before,
+            [data-kinde-choice-separator]::after {
+              content: "";
+              flex: 1 1 0%;
+              border-top-width: 1px;
+              border-color: rgb(226 232 240);
+            }
+            [data-kinde-choice-separator]::before {
+              margin-right: 1rem;
+            }
+            [data-kinde-choice-separator]::after {
+              margin-left: 1rem;
+            }
+            [data-kinde-layout-auth-buttons] {
+              display: flex;
+              flex-direction: column;
+              gap: 0.75rem;
+            }
+            [data-kinde-layout-auth-buttons-item] button,
+            [data-kinde-button-secondary] {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 0.625rem;
+              padding: 0.75rem 1rem;
+              border-radius: 0.75rem;
+              border-width: 1px;
+              border-color: rgb(226 232 240);
+              background-color: rgb(255 255 255);
+              color: rgb(51 65 85);
+              font-weight: 600;
+              cursor: pointer;
+              transition: all 0.2s;
+            }
+            [data-kinde-layout-auth-buttons-item] button:hover,
+            [data-kinde-button-secondary]:hover {
+              background-color: rgb(248 250 252);
+              border-color: rgb(203 213 225);
+            }
+            [data-kinde-input] {
+              width: 100%;
+              border-radius: 0.75rem;
+              border-width: 1px;
+              border-color: rgb(226 232 240);
+              background-color: rgb(255 255 255);
+              padding: 0.75rem 1rem;
+              color: rgb(15 23 42);
+              font-size: 1rem;
+            }
+            [data-kinde-input]::placeholder {
+              color: rgb(203 213 225);
+            }
+            [data-kinde-input]:focus {
+              border-color: rgb(37 99 235);
+              outline: 2px solid transparent;
+              outline-offset: 2px;
+              box-shadow: 0 0 0 4px rgb(59 130 246 / 0.1);
+            }
+            [data-kinde-label] {
+              display: block;
+              font-size: 0.875rem;
+              font-weight: 600;
+              color: rgb(51 65 85);
+              margin-left: 0.25rem;
+              margin-bottom: 0.5rem;
+            }
+            [data-kinde-button-primary] {
+              width: 100%;
+              border-radius: 0.75rem;
+              background-image: linear-gradient(to right, rgb(15 23 42), rgb(30 41 59));
+              padding: 0.875rem 1rem;
+              font-size: 1rem;
+              font-weight: 700;
+              color: rgb(255 255 255);
+              box-shadow: 0 10px 15px -3px rgb(15 23 42 / 0.2);
+              border: none;
+              cursor: pointer;
+              transition: all 0.2s;
+            }
+            [data-kinde-button-primary]:hover {
+              background-image: linear-gradient(to right, rgb(30 41 59), rgb(51 65 85));
+              box-shadow: 0 10px 15px -3px rgb(15 23 42 / 0.3);
+            }
+            
+            /* Responsive layout for desktop */
+            @media (min-width: 1024px) {
+              [data-kinde-root] > div > div:first-child {
+                width: 41.666667%;
+              }
+              [data-kinde-root] > div > div:last-child {
+                display: block;
+                width: 58.333333%;
+                height: 100%;
+                position: relative;
+                overflow: hidden;
+                background-color: rgb(15 23 42);
+              }
+            }
+          `
+        }} />
       </head>
       <body>
         <div data-kinde-root="/admin">

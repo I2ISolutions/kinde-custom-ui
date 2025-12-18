@@ -6,16 +6,32 @@ interface LogoProps {
 
 export const Logo = ({ src }: LogoProps) => {
   return (
-    <div className="flex items-center justify-center mb-3">
-      <div className="relative group">
-        {/* Animated glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-indigo-500/30 rounded-2xl blur-xl scale-110 group-hover:scale-125 transition-transform duration-500"></div>
-        {/* Logo container with glassmorphism */}
-        <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-2xl group-hover:shadow-blue-500/20 transition-all duration-300">
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '0.75rem' }}>
+      <div style={{ position: 'relative' }}>
+        {/* Logo container */}
+        <div style={{
+          position: 'relative',
+          background: 'linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,255,255,0.05))',
+          backdropFilter: 'blur(12px)',
+          borderRadius: '1rem',
+          padding: '1rem',
+          border: '1px solid rgba(255,255,255,0.2)',
+          boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)'
+        }}>
           <img
             src={src}
             alt="Zopkit"
-            className="h-20 w-auto object-contain rounded-2xl drop-shadow-2xl filter brightness-110"
+            style={{
+              height: '5rem',
+              width: 'auto',
+              objectFit: 'contain',
+              borderRadius: '1rem',
+              filter: 'drop-shadow(0 25px 25px rgba(0,0,0,0.15)) brightness(1.1)'
+            }}
+            onError={(e) => {
+              // Fallback if image fails to load
+              (e.target as HTMLImageElement).style.display = 'none';
+            }}
           />
         </div>
       </div>

@@ -15,34 +15,46 @@ export const Widget = (props: { heading: string; description: string }) => {
                      (typeof widgetContent === 'object' && !React.isValidElement(widgetContent));
 
   return (
-    <main className="w-full max-w-[400px] mx-auto px-6 lg:px-0">
-      <div className="mb-12 flex justify-center lg:justify-start">
+    <main style={{ width: '100%', maxWidth: '400px', margin: '0 auto', padding: '0 1.5rem' }}>
+      <div style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'center' }}>
         <Logo src={logoUrl} />
       </div>
 
-      <div className="mb-10 text-center lg:text-left">
-        <h1 className="text-[32px] font-bold text-slate-900 mb-3 tracking-tight leading-tight">
+      <div style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
+        <h1 style={{ 
+          fontSize: '32px', 
+          fontWeight: 700, 
+          color: 'rgb(15 23 42)', 
+          marginBottom: '0.75rem',
+          letterSpacing: '-0.025em',
+          lineHeight: '1.25'
+        }}>
           {props.heading}
         </h1>
-        <p className="text-slate-500 font-medium text-lg leading-relaxed">
+        <p style={{ 
+          color: 'rgb(100 116 139)', 
+          fontWeight: 500, 
+          fontSize: '1.125rem',
+          lineHeight: '1.625'
+        }}>
           {props.description}
         </p>
       </div>
 
-      <div className="w-full">
+      <div style={{ width: '100%' }}>
         {/* Kinde Widget Container */}
-        <div className="space-y-6">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           {isLocalDev ? <MockKindeWidget /> : widgetContent}
         </div>
       </div>
 
-      <div className="mt-12 text-center lg:text-left text-sm text-slate-400">
-        <div className="flex justify-center lg:justify-start gap-6 mb-6">
-          <a href="#" className="font-medium text-slate-500 hover:text-slate-900 transition-colors">Privacy</a>
-          <a href="#" className="font-medium text-slate-500 hover:text-slate-900 transition-colors">Terms</a>
-          <a href="#" className="font-medium text-slate-500 hover:text-slate-900 transition-colors">Help</a>
+      <div style={{ marginTop: '3rem', textAlign: 'center', fontSize: '0.875rem', color: 'rgb(148 163 184)' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
+          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none' }}>Privacy</a>
+          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none' }}>Terms</a>
+          <a href="#" style={{ fontWeight: 500, color: 'rgb(100 116 139)', textDecoration: 'none' }}>Help</a>
         </div>
-        <p className="text-slate-400">
+        <p>
           &copy; {new Date().getFullYear()} Zopkit Inc. All rights reserved.
         </p>
       </div>
