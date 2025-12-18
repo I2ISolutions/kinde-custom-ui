@@ -168,22 +168,16 @@ export const Layout = async ({
               flex-direction: column;
             }
             
+            /* Remove old layout constraints */
+            /*
             .kinde-layout-container {
               display: flex !important;
               flex-direction: column !important;
             }
-            
-            .kinde-login-panel {
-              width: 100% !important;
-            }
-            
-            .kinde-marketing-panel {
-              display: none !important;
-              width: 0 !important;
-              overflow: hidden !important;
-            }
+            */
             
             /* Responsive layout for desktop */
+            /*
             @media screen and (min-width: 1024px) {
               [data-kinde-root] > div,
               .kinde-layout-container {
@@ -205,6 +199,7 @@ export const Layout = async ({
                 flex-shrink: 0 !important;
               }
             }
+            */
             
             /* Logo styling */
             img[alt="Zopkit"] {
@@ -262,18 +257,65 @@ export const Layout = async ({
               -moz-osx-font-smoothing: grayscale;
             }
             
-            /* Container styling */
+            /* Container styling - Full Screen Enterprise */
             .kinde-layout-wrapper {
               position: relative;
               width: 100vw;
-              min-height: 100vh;
+              height: 100vh;
+              overflow: hidden;
+              background-color: white; /* Fallback */
+              padding: 0 !important; /* Remove outer padding */
             }
             
             .kinde-layout-container {
-              position: relative;
+              display: flex !important;
+              flex-direction: column !important;
+              width: 100% !important;
+              height: 100% !important;
+              max-width: none !important;
+              max-height: none !important;
+              margin: 0 !important;
+              border-radius: 0 !important;
+              border: none !important;
+              box-shadow: none !important;
             }
             
-            /* Ensure images load properly */
+            .kinde-login-panel {
+              width: 100% !important;
+              height: auto !important;
+              padding: 2rem !important;
+              overflow-y: auto;
+              background-color: white;
+            }
+            
+            .kinde-marketing-panel {
+              display: none !important;
+            }
+            
+            /* Responsive layout for desktop */
+            @media screen and (min-width: 1024px) {
+              .kinde-layout-container {
+                flex-direction: row !important;
+              }
+              
+              .kinde-login-panel {
+                width: 40% !important; /* Adjusted ratio */
+                height: 100% !important;
+                padding: 4rem 6rem !important; /* More spacious padding */
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                max-width: none !important; /* Remove constraints */
+              }
+              
+              .kinde-marketing-panel,
+              #marketing-panel {
+                display: block !important;
+                width: 60% !important;
+                height: 100% !important;
+                background-color: rgb(15 23 42) !important;
+              }
+            }
             img {
               max-width: 100%;
               height: auto;

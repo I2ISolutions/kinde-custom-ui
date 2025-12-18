@@ -128,7 +128,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         </div>
       </div>
 
-      <div style={{ width: "100%", maxWidth: "400px" }}>
+      <div style={{ width: "100%", maxWidth: "100%" }}> {/* Full width container for button */}
         {isLocalDev ? <MockKindeWidget /> : widgetContent}
       </div>
     </div>
