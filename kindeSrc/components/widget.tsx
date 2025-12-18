@@ -34,25 +34,25 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
-        height: "100%",
+        justifyContent: "flex-start",
+        minHeight: 0,
         position: "relative",
-        paddingTop: "2rem", // Added padding for safety
+        overflow: "hidden",
       }}
     >
-      <div style={{ marginBottom: "2rem" }}> {/* Changed from absolute positioning to normal flow */}
+      <div style={{ marginBottom: "1.5rem", flexShrink: 0 }}>
         <Logo src={logoUrl} />
       </div>
 
-      <div style={{ marginBottom: "2.5rem" }}>
+      <div style={{ marginBottom: "2rem", flexShrink: 0 }}>
         <h1
           style={{
-            fontSize: "clamp(2rem, 5vh, 3rem)", // Slightly smaller
+            fontSize: "clamp(1.75rem, 4vh, 2.5rem)",
             fontWeight: 800,
             color: "#0f172a",
-            marginBottom: "1rem",
+            marginBottom: "0.75rem",
             letterSpacing: "-0.03em",
-            lineHeight: "1",
+            lineHeight: "1.1",
             fontFamily: '"Inter", sans-serif',
           }}
         >
@@ -61,12 +61,12 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         <p
           style={{
             color: "#64748b",
-            fontSize: "0.95rem",
+            fontSize: "0.875rem",
             lineHeight: "1.5",
             fontWeight: 400,
-            marginBottom: "3rem",
+            marginBottom: "2rem",
             letterSpacing: "0.01em",
-            maxWidth: "420px",
+            maxWidth: "100%",
             fontFamily: '"Inter", sans-serif',
           }}
         >
@@ -79,8 +79,8 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
-            gap: "2rem 2rem", // Reduced gap
-            marginBottom: "2rem",
+            gap: "1.5rem 1.25rem",
+            marginBottom: "1.5rem",
           }}
         >
           {modules.map((mod, i) => (
@@ -89,17 +89,17 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "0.4rem",
-                borderLeft: "2px solid #e2e8f0", // Thicker accent
-                paddingLeft: "1rem",
+                gap: "0.35rem",
+                borderLeft: "2px solid #e2e8f0",
+                paddingLeft: "0.875rem",
               }}
             >
               <span
                 style={{
-                  fontSize: "0.5rem",
+                  fontSize: "0.45rem",
                   fontWeight: 900,
-                  color: "#6366f1", // Indigo-500
-                  letterSpacing: "0.15em",
+                  color: "#6366f1",
+                  letterSpacing: "0.1em",
                   textTransform: "uppercase",
                   fontFamily: '"Inter", sans-serif',
                 }}
@@ -108,7 +108,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
               </span>
               <span
                 style={{
-                  fontSize: "0.75rem",
+                  fontSize: "0.7rem",
                   fontWeight: 600,
                   color: "#334155",
                   lineHeight: "1.3",
@@ -122,7 +122,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         </div>
       </div>
 
-      <div style={{ width: "100%", maxWidth: "100%" }}>
+      <div style={{ width: "100%", flexShrink: 0 }}>
         {widgetContent}
       </div>
     </div>

@@ -259,12 +259,18 @@ export const Layout = async ({
             
             /* Container styling - Full Screen Enterprise */
             .kinde-layout-wrapper {
-              position: relative;
+              position: fixed;
+              top: 0;
+              left: 0;
               width: 100vw;
               height: 100vh;
               overflow: hidden;
-              background-color: white; /* Fallback */
-              padding: 0 !important; /* Remove outer padding */
+              background: linear-gradient(to bottom right, rgb(248 250 252), rgb(241 245 249));
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 1rem;
+              box-sizing: border-box;
             }
             
             .kinde-layout-container {
@@ -272,20 +278,40 @@ export const Layout = async ({
               flex-direction: column !important;
               width: 100% !important;
               height: 100% !important;
-              max-width: none !important;
-              max-height: none !important;
-              margin: 0 !important;
-              border-radius: 0 !important;
-              border: none !important;
-              box-shadow: none !important;
+              max-width: 1600px !important;
+              max-height: 95vh !important;
+              margin: 0 auto !important;
+              background-color: white !important;
+              border-radius: 1.5rem !important;
+              box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25) !important;
+              overflow: hidden !important;
+              border: 1px solid rgba(226, 232, 240, 0.5) !important;
             }
             
             .kinde-login-panel {
               width: 100% !important;
-              height: auto !important;
-              padding: 2rem !important;
-              overflow-y: auto;
-              background-color: white;
+              height: 100% !important;
+              padding: 2.5rem !important;
+              overflow-y: auto !important;
+              overflow-x: hidden !important;
+              background-color: white !important;
+              display: flex !important;
+              flex-direction: column !important;
+              justify-content: flex-start !important;
+              box-sizing: border-box !important;
+            }
+            
+            .kinde-login-panel::-webkit-scrollbar {
+              width: 6px;
+            }
+            
+            .kinde-login-panel::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            
+            .kinde-login-panel::-webkit-scrollbar-thumb {
+              background: rgb(226 232 240);
+              border-radius: 3px;
             }
             
             .kinde-marketing-panel {
@@ -299,21 +325,20 @@ export const Layout = async ({
               }
               
               .kinde-login-panel {
-                width: 40% !important; /* Adjusted ratio */
+                width: 42% !important;
                 height: 100% !important;
-                padding: 4rem 6rem !important; /* More spacious padding */
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: center !important;
-                max-width: none !important; /* Remove constraints */
+                padding: 3.5rem 4rem !important;
+                flex-shrink: 0 !important;
               }
               
               .kinde-marketing-panel,
               #marketing-panel {
-                display: block !important;
-                width: 60% !important;
+                display: flex !important;
+                width: 58% !important;
                 height: 100% !important;
                 background-color: rgb(15 23 42) !important;
+                flex-shrink: 0 !important;
+                overflow: hidden !important;
               }
             }
             img {
