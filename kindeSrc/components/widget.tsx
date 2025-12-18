@@ -34,89 +34,101 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description }) => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-start",
-        minHeight: 0,
+        justifyContent: "flex-start", // Changed to flex-start
+        minHeight: "100%", // Ensure full height
         position: "relative",
         overflow: "hidden",
+        padding: "2rem 0", // Add some vertical padding
       }}
     >
-      <div style={{ marginBottom: "1.5rem", flexShrink: 0 }}>
+      <div style={{ marginBottom: "2.5rem", flexShrink: 0 }}>
         <Logo src={logoUrl} />
       </div>
 
-      <div style={{ marginBottom: "2rem", flexShrink: 0 }}>
+      <div style={{ marginBottom: "3rem", flexShrink: 0 }}>
         <h1
           style={{
-            fontSize: "clamp(1.75rem, 4vh, 2.5rem)",
-            fontWeight: 800,
+            fontSize: "clamp(2rem, 4vh, 2.75rem)",
+            fontWeight: 700,
             color: "#0f172a",
-            marginBottom: "1.5rem",
+            marginBottom: "1rem",
             letterSpacing: "-0.03em",
-            lineHeight: "1.1",
+            lineHeight: "1.2",
             fontFamily: '"Inter", sans-serif',
           }}
         >
           {heading}
         </h1>
+        <p style={{
+            fontSize: "1.125rem",
+            color: "#64748b",
+            lineHeight: "1.6",
+            maxWidth: "90%",
+        }}>
+            {description}
+        </p>
+      </div>
 
-        {/* Enterprise Module Portfolio */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "1.5rem 1.25rem",
-            marginBottom: "1.5rem",
-          }}
-        >
-          {modules.map((mod, i) => (
-            <div
-              key={i}
+      {/* Enterprise Module Portfolio - Improved Styling */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", // Responsive grid
+          gap: "2rem",
+          marginBottom: "3rem",
+        }}
+      >
+        {modules.map((mod, i) => (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.5rem",
+              paddingLeft: "1rem",
+              borderLeft: "2px solid #e2e8f0",
+              transition: "border-color 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "#6366f1";
+            }}
+            onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "#e2e8f0";
+            }}
+          >
+            <span
               style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.35rem",
-                borderLeft: "2px solid #e2e8f0",
-                paddingLeft: "0.875rem",
+                fontSize: "0.625rem",
+                fontWeight: 700,
+                color: "#6366f1",
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
+                fontFamily: '"Inter", sans-serif',
               }}
             >
-              <span
-                style={{
-                  fontSize: "0.45rem",
-                  fontWeight: 900,
-                  color: "#6366f1",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  fontFamily: '"Inter", sans-serif',
-                }}
-              >
-                {mod.name.replace(/_/g, " ")}
-              </span>
-              <span
-                style={{
-                  fontSize: "0.7rem",
-                  fontWeight: 600,
-                  color: "#334155",
-                  lineHeight: "1.3",
-                  fontFamily: '"Inter", sans-serif',
-                }}
-              >
-                {mod.detail}
-              </span>
-            </div>
-          ))}
-        </div>
+              {mod.name.replace(/_/g, " ")}
+            </span>
+            <span
+              style={{
+                fontSize: "0.875rem",
+                fontWeight: 500,
+                color: "#334155",
+                lineHeight: "1.4",
+                fontFamily: '"Inter", sans-serif',
+              }}
+            >
+              {mod.detail}
+            </span>
+          </div>
+        ))}
       </div>
 
       <div style={{ 
         width: "100%", 
         flexShrink: 0, 
-        marginTop: "1.5rem", 
+        marginTop: "auto", // Push to bottom if space permits
         zIndex: 10, 
         position: "relative",
-        minHeight: "200px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "1rem"
       }}>
         <div style={{ width: "100%", opacity: 1, visibility: "visible" }}>
           {widgetContent}
