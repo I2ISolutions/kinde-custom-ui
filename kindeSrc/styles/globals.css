@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,9 +21,30 @@
     
     --kinde-control-select-text-border-radius: 0.375rem;
   }
+
+  body {
+    font-family: var(--kinde-base-font-family);
+  }
 }
 
 @layer components {
+  /* Layout Containers */
+  .kinde-layout-wrapper {
+    @apply min-h-screen w-full bg-white font-sans;
+  }
+
+  .kinde-layout-container {
+    @apply flex min-h-screen w-full overflow-hidden;
+  }
+
+  .kinde-login-panel {
+    @apply flex-1 flex flex-col justify-center bg-white relative z-10 overflow-y-auto;
+  }
+  
+  .kinde-marketing-panel {
+    @apply hidden lg:flex flex-1 relative bg-[#020617] overflow-hidden;
+  }
+
   /* Separator styling "OR" */
   [data-kinde-choice-separator] {
     @apply my-6 flex items-center text-xs font-semibold uppercase tracking-wider text-slate-500;
