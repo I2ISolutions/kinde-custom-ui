@@ -99,9 +99,9 @@ const MarketingPanel: React.FC = () => {
         </div>
 
         <h1 style={{
-          fontSize: "clamp(4.5rem, 8vw, 8rem)",
+          fontSize: "clamp(5.5rem, 9vw, 9rem)",
           fontWeight: 900,
-          lineHeight: 0.9,
+          lineHeight: 0.85,
           letterSpacing: "-0.06em",
           marginBottom: "32px",
           color: "#ffffff"
@@ -112,19 +112,19 @@ const MarketingPanel: React.FC = () => {
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             display: "inline-block",
-            paddingBottom: "10px" // Prevents text clipping for descenders
+            paddingBottom: "10px"
           }}>
             Limitless scale.
           </span>
         </h1>
 
         <p style={{
-          fontSize: "1.25rem",
+          fontSize: "1.35rem",
           color: "#94a3b8",
-          lineHeight: 1.6,
-          maxWidth: "540px",
+          lineHeight: 1.5,
+          maxWidth: "580px",
           fontWeight: 500,
-          marginBottom: "48px"
+          marginBottom: "56px"
         }}>
           One infrastructure. Infinite possibilities. Orchestrate your global revenue, operations, and workforce from a single sovereign control plane.
         </p>
