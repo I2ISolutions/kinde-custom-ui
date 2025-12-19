@@ -17,15 +17,15 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description, kindeWidge
   return (
     <div style={{
       width: "100%",
-      maxWidth: "560px", // Reduced max-width for compactness
+      maxWidth: "440px", // ULTRA COMPACT
       margin: "0 auto",
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      padding: "clamp(1rem, 2vh, 2rem) 1.5rem", // Tighter padding
-      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", // Ensure Inter is used
+      padding: "clamp(1rem, 2vh, 2rem) 1.5rem",
+      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
       position: "relative",
-      minHeight: "100vh" // Ensure vertical centering works well
+      minHeight: "100vh"
     }}>
       {/* Background decoration - subtle */}
       <div style={{
@@ -45,28 +45,28 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description, kindeWidge
           display: "flex", 
           justifyContent: "flex-start", 
           alignItems: "center", 
-          marginBottom: "24px", // Reduced margin
+          marginBottom: "16px", // Compact
         }}>
           <Logo src={brandLogoUrl} />
         </div>
 
-        <div style={{ marginBottom: "28px" }}>
+        <div style={{ marginBottom: "20px" }}> {/* Compact */}
           <h1 style={{
-            fontSize: "clamp(1.75rem, 3vh, 2.25rem)", // Slightly tighter heading
-            fontWeight: 800, // Slightly lighter than 900 for elegance
+            fontSize: "clamp(1.5rem, 2.5vh, 1.875rem)", // Smaller heading
+            fontWeight: 800,
             color: "#0f172a",
             letterSpacing: "-0.03em",
             lineHeight: 1.1,
-            marginBottom: "8px"
+            marginBottom: "6px"
           }}>
             {heading}
           </h1>
           <p style={{
-            fontSize: "0.9375rem", // 15px
+            fontSize: "0.875rem", // 14px
             color: "#64748b",
-            lineHeight: 1.5,
+            lineHeight: 1.4,
             fontWeight: 400,
-            maxWidth: "480px"
+            maxWidth: "420px"
           }}>
             {description}
           </p>
@@ -76,8 +76,8 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description, kindeWidge
         <div style={{ 
           display: "grid", 
           gridTemplateColumns: "repeat(2, 1fr)", 
-          gap: "10px", // Tighter gap
-          marginBottom: "32px"
+          gap: "8px", // Very tight gap
+          marginBottom: "24px" // Compact
         }}>
           {ENTERPRISE_MODULES.map((mod, i) => (
             <div 
@@ -85,10 +85,10 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description, kindeWidge
               style={{ 
                 display: "flex", 
                 flexDirection: "column", 
-                gap: "4px",
-                padding: "12px 16px", // Compact padding
+                gap: "2px",
+                padding: "10px 12px", // Very compact padding
                 backgroundColor: "#fff",
-                borderRadius: "12px", // Slightly smaller radius
+                borderRadius: "10px", // Smaller radius
                 border: "1px solid #f1f5f9",
                 transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
                 cursor: "default",
@@ -104,43 +104,43 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description, kindeWidge
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                 <div style={{ 
-                  width: "20px", 
-                  height: "20px", 
+                  width: "16px", 
+                  height: "16px", 
                   backgroundColor: "#eff6ff", 
-                  borderRadius: "5px", 
+                  borderRadius: "4px", 
                   display: "flex", 
                   alignItems: "center", 
                   justifyContent: "center",
                   border: "1px solid #dbeafe"
                 }}>
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2.5">
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2.5">
                     <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
                   </svg>
                 </div>
-                <span style={{ fontSize: "9px", fontWeight: 800, color: "#1e40af", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                <span style={{ fontSize: "8px", fontWeight: 800, color: "#1e40af", letterSpacing: "0.05em", textTransform: "uppercase" }}>
                   {mod.name}
                 </span>
               </div>
-              <span style={{ fontSize: "11px", fontWeight: 600, color: "#475569", marginTop: "2px", lineHeight: "1.3" }}>
+              <span style={{ fontSize: "10px", fontWeight: 600, color: "#475569", marginTop: "1px", lineHeight: "1.2" }}>
                 {mod.detail}
               </span>
             </div>
           ))}
         </div>
 
-        <div style={{ position: "relative", marginBottom: "28px" }}>
-          <div style={{ position: "absolute", top: "50%", left: 0, right: 0, height: "1px", backgroundColor: "#e2e8f0" }} />
+        <div style={{ position: "relative", marginBottom: "20px" }}>
+          <div style={{ position: "absolute", top: "50%", left: 0, right: 0, height: "1px", backgroundColor: "#f1f5f9" }} />
           <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
             <span style={{ 
               backgroundColor: "#fff", 
-              padding: "0 16px", 
-              fontSize: "9px", 
+              padding: "0 12px", 
+              fontSize: "8px", 
               fontWeight: 700, 
               color: "#94a3b8", 
               textTransform: "uppercase", 
-              letterSpacing: "0.25em" 
+              letterSpacing: "0.2em" 
             }}>
               Secure Identity Portal
             </span>
@@ -151,8 +151,6 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description, kindeWidge
           {/* Kinde Widget */}
           {kindeWidget} 
         </div>
-        
-        {/* Footer Removed as requested */}
       </div>
     </div>
   );
